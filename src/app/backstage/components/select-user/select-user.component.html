@@ -1,0 +1,121 @@
+<div nz-row>
+    <div nz-col>
+      <nz-table  [nzData]="UserArray" #basicTable nzBordered="true" nzShowPagination="false" [nzPageSize]="pageSize">
+          <thead>
+              <tr>
+                <th nzExpand="true" nzWidth="3%"></th>
+                <th nzWidth="5%">ID</th>
+                <th nzCustomFilter>用户名称                 
+                  <nz-dropdown nzPlacement="bottomRight" #dropdown nzTrigger="click" nzClickHide="false" #dropdown nzTableFilter>
+                      <i
+                    nz-icon
+                    nzType="search"
+                    class="ant-table-filter-icon"
+                    [class.ant-table-filter-open]="dropdown.nzVisible"
+                    nz-dropdown
+                  ></i> 
+                    <div class="search-box" >
+                          <input type="text" nz-input placeholder="请输入关键词" [(ngModel)]="key" />
+                          <button nz-button nzSize="small" nzType="primary" (click)="search()" >
+                            搜索
+                          </button>
+                          <button nz-button nzSize="small" nzType="primary" (click)="reset()">
+                              重置
+                            </button>
+                        </div>
+                  </nz-dropdown>              
+                </th>
+                <th>用户账号</th>
+                <th>用户密码</th>
+                <th>用户头像</th>
+                <th>性别</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+          </thead>
+          <tbody>   
+              <ng-template ngFor let-item [ngForOf]="basicTable.data">
+                  <tr>
+                      <td nzShowExpand="true" [(nzExpand)]="editCache[item.userid].expand"></td>
+                      <td>{{item.userid}}</td>
+                      <td>
+                            <span class="contentTr">{{item.username}}</span>                            
+                      </td>
+                      <td>
+                            <span class="contentTr">{{item.useraccount}}</span>
+                      </td>
+                      <td>
+                          <span class="contentTr">{{item.userpassword}}</span>
+                      </td>
+                      <td>
+                        <img [src]="item.userheadimg" width="50px" height="50px">
+                            <!-- <span class="contentTr">{{item.userheadimg}}</span> -->
+                      </td>                    
+                      <td>
+                            <span class="contentTr">{{item.sex}}</span>
+                      </td>
+                      <td>
+                          <span class="contentTr">{{item.status==0?'有效':'无效'}}</span>
+                    </td>
+                      <td>
+                          <div class="editable-row-operations">
+                              <ng-container *ngIf="item.status==0;else saveTpl">
+                                <a (click)="stop(item.userid,1)">冻结</a>
+                              </ng-container>
+                              <ng-template #saveTpl>
+                                <a (click)="stop(item.userid,0)">解除</a>&nbsp;&nbsp;
+                              </ng-template>
+                          </div>
+                      </td>                   
+                  </tr>
+                  <tr [nzExpand]="editCache[item.userid].expand">
+                    <td></td>
+                    <td colspan="12">
+                      
+                        <nz-table nzSize="middle" nzBordered="true" class="child" [nzNoResult]="null">
+                            <thead >
+                              <tr>
+                                  <th colspan="3" nzAlign="left"><span>邮箱</span></th>                                     
+                                  <th colspan="3" nzAlign="left"><span>生日</span></th>
+                                  <th colspan="3" nzAlign="left"><span>所在地</span></th>
+                                  <th colspan="3" nzAlign="left"><span>音乐偏好</span></th>
+                                  <th colspan="3" nzAlign="left"><span>注册时间</span></th>                     
+                                  <th colspan="3" nzAlign="left"><span>签名</span></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr >
+                                  <td colspan="3">{{item.email}}</td>
+                                  <td colspan="3">
+                  
+                                          <span class="contentTr">{{item.birthday}}</span>
+                                  </td>
+                                  <td colspan="3">
+                                   
+                                          <span class="contentTr">{{item.location}}</span>
+                                    
+                                  </td>
+                                  <td colspan="3">
+                                 
+                                          <span class="contentTr">{{item.musicpreference}}</span>
+                           
+                                  </td>
+                                  <td colspan="3">
+                                        <span class="contentTr">{{item.registertime}}</span>  
+                                
+                                  </td>
+                                  <td colspan="3"><button nz-button (click)="checkSign(item.userid)">查看签名</button></td>
+                              </tr>
+                            </tbody>
+                          </nz-table>
+                    </td>                  
+                  </tr>
+              </ng-template>
+          </tbody>
+      </nz-table>
+      <nz-pagination [(nzPageIndex)]="pageIndex" (nzPageIndexChange)="indexchange()" [nzTotal]="total" [(nzPageSize)]="pageSize" class="page"></nz-pagination>
+    </div>
+  </div>
+  <nz-drawer [nzVisible]="visible" [nzTitle]="title" [nzMaskClosable]="true"  [nzClosable]="false" (nzOnClose)="close()">
+    <p>{{signature!=''&&signature?signature:'这个人很神秘呢，没有留下介绍'}}</p>
+  </nz-drawer>

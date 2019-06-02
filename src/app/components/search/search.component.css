@@ -1,0 +1,59 @@
+ul{
+    list-style: none;
+}
+.selectTag
+{
+    background-color: #c20c0c;
+}
+.selectTag a{
+    color: white;
+}
+.searchtag{
+    text-align: center;
+    padding: 0%;
+    margin: 0px;
+}
+.searchtag li
+{
+    padding: 10%;
+    border-bottom: 1px solid #f4f4f4;
+    outline: none;
+}
+li a{
+    color: #999;
+    font-size: 16px;
+}
+.searchRow
+{
+    margin-top: 20px;
+}
+.searchLeft
+{
+    background-color: white;
+    margin-right: 20px;
+}
+.searchright
+{
+    background-color: white;
+    padding: 2%;
+    min-height: 500px;
+}
+.searchtit
+{
+    color: #666;
+}
+.searchright ::ng-deep .ant-tabs-nav .ant-tabs-tab:hover a
+{
+    color: #c20c0c;
+    font-weight: 700;
+}
+
+.searchright ::ng-deep .ant-tabs-nav .ant-tabs-tab-active a
+{
+    color: #c20c0c;
+    font-weight: 700;
+}
+.searchright ::ng-deep .ant-tabs-ink-bar
+{
+    background-color: #c20c0c;
+}

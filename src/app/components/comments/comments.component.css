@@ -1,0 +1,48 @@
+/* .commentitem{
+    width: 540px;
+} */
+ul{
+    list-style: none;
+}
+.inputreply{
+    /* width: 65%; */
+    height: 161px;
+    margin-left: 70px;
+}
+.likecolor{
+    color: #C20C0C;
+}
+.replylist ::ng-deep .ant-comment-content{
+    /* width: 440px; */
+}
+.page ::ng-deep .ant-pagination{
+    margin-left: 40px;
+}
+.commentlist{
+    /* padding-right: 40px; */
+}
+.commentlist ::ng-deep .ng-star-inserted{
+    margin: 0px;
+}
+/* .replylist ::ng-deep .ng-star-inserted{
+ 
+    padding-right: 40px;
+} */
+.inputcomment{
+    padding-right: 40px;
+}
+.commentul{
+    width: 100%;
+}
+.nzvComment{
+    font-size: 25px;
+    margin-right: 10px;
+    
+}
+.commentbtn{
+    color: white;
+    background-color: #C20C0C;
+}
+.commentbtn:hover{
+    border: 1px solid #C20C0C;
+}

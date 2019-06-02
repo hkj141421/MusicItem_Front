@@ -1,0 +1,155 @@
+<div nz-row>
+  <div nz-col>
+    <nz-table  [nzData]="MusicArray" #basicTable nzBordered="true" nzShowPagination="false" [nzPageSize]="pageSize">
+        <thead>
+            <tr>
+              <th nzExpand="true" nzWidth="3%"><button nz-button (click)="batchDelete()" class="delete" nzType="primary">删除</button></th>
+              <th nzShowCheckbox="true" nzWidth="3%" (nzCheckedChange)="allcheck($event)"></th>
+              <th nzWidth="5%">ID</th>
+              <th nzCustomFilter>音乐名称
+                
+                <nz-dropdown nzPlacement="bottomRight" #dropdown nzTrigger="click" nzClickHide="false" #dropdown nzTableFilter>
+                    <i
+                  nz-icon
+                  nzType="search"
+                  class="ant-table-filter-icon"
+                  [class.ant-table-filter-open]="dropdown.nzVisible"
+                  nz-dropdown
+                ></i> 
+                  <div class="search-box" >
+                        <input type="text" nz-input placeholder="请输入关键词" [(ngModel)]="key" />
+                        <button nz-button nzSize="small" nzType="primary" (click)="search()" >
+                          搜索
+                        </button>
+                        <button nz-button nzSize="small" nzType="primary" (click)="reset()">
+                            重置
+                          </button>
+                      </div>
+                </nz-dropdown>
+            
+              </th>
+              <th>歌手</th>
+              <th>播放地址</th>
+              <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>   
+            <ng-template ngFor let-item [ngForOf]="basicTable.data">
+                <tr>
+                    <td nzShowExpand="true" [(nzExpand)]="editCache[item.musicid].expand"></td>
+                    <td nzShowCheckbox="true" nzWidth="3%" [(nzChecked)]="editCache[item.musicid].checked"></td>
+                    <td>{{item.musicid}}</td>
+                    <td colspan="1">
+                        <ng-container *ngIf="!editCache[item.musicid].edit; else nameInputTpl">
+                            <div class="musicname" [title]="item.musicname"><span class="contentTr">{{item.musicname}}</span></div>                            
+                        </ng-container>
+                        <ng-template #nameInputTpl>
+                          <input type="text" nz-input [(ngModel)]="item.musicname" width="200px"/>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!editCache[item.musicid].edit; else singerInputTpl">
+                            <div class="singer" [title]="item.singer"><span class="contentTr">{{item.singer}}</span></div>
+                        </ng-container>
+                        <ng-template #singerInputTpl>
+                          <input type="text" nz-input [(ngModel)]="item.singer" width="130px"/>
+                        </ng-template>
+                    </td>
+                  
+                    <td>
+                        <ng-container *ngIf="!editCache[item.musicid].edit; else addressInputTpl">
+                            <div class="musicaddress" [title]="item.musicaddress"><span class="contentTr">{{item.musicaddress}}</span></div>
+                        </ng-container>
+                        <ng-template #addressInputTpl>
+                          <input type="text" nz-input [(ngModel)]="item.musicaddress" width="400px"/>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <div class="editable-row-operations">
+                            <ng-container *ngIf="!editCache[item.musicid].edit; else saveTpl">
+                              <a (click)="startEdit(item.musicid)">编辑</a>
+                            </ng-container>
+                            <ng-template #saveTpl>
+                              <ul>
+                                <li><a (click)="saveEdit(item.musicid)">保存</a></li>
+                                <li><a nz-popconfirm nzTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(item.musicid)">取消</a></li>
+                              </ul>
+
+                            </ng-template>
+                          </div>
+                    </td>                   
+                </tr>
+                <tr [nzExpand]="editCache[item.musicid].expand">
+                  <td></td>
+                  <td colspan="12">
+                    
+                      <nz-table nzSize="middle" nzBordered="true" class="child" [nzNoResult]="null">
+                          <thead >
+                            <tr>
+                                <th colspan="3" nzAlign="left">语言</th>
+                                <th colspan="3" nzAlign="left"><span>歌词</span></th>                                     
+                                <th colspan="3" nzAlign="left"><span>风格</span></th>
+                                <th colspan="3" nzAlign="left"><span>专辑</span></th>
+                                <th colspan="3" nzAlign="left"><span>时长</span></th>
+                                <th colspan="3" nzAlign="left"><span>封面</span></th>                     
+                                <!-- <th colspan="3" nzAlign="left"><span>添加时间</span></th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr >
+                                <td colspan="3">
+                                    <ng-container *ngIf="!editCache[item.musicid].edit; else languageInputTpl">
+                                        <span class="contentTr" [title]="item.language">{{item.language}}</span>
+                                    </ng-container>
+                                    <ng-template #languageInputTpl>
+                                      <input type="text" nz-input [(ngModel)]="item.language" width="80px"/>
+                                    </ng-template>
+                                </td>  
+                                <td colspan="3"><button nz-button nzType="primary" nzSize="small" (click)="checkLRc(item.lyricid,item.musicname)">查看歌词</button></td>
+                                <td colspan="3">
+                                    <ng-container *ngIf="!editCache[item.musicid].edit; else typeInputTpl">
+                                        <div class="style" [title]="item.type"><span class="contentTr" >{{item.type}}</span></div>
+                                    </ng-container>
+                                    <ng-template #typeInputTpl>
+                                      <input type="text" nz-input [(ngModel)]="item.type" width="180px"/>
+                                    </ng-template>
+                                </td>
+                                <td colspan="3">
+                                    <ng-container *ngIf="!editCache[item.musicid].edit; else albumInputTpl">
+                                        <span class="contentTr" [title]="item.album">{{item.album}}</span>
+                                    </ng-container>
+                                    <ng-template #albumInputTpl>
+                                      <input type="text" nz-input [(ngModel)]="item.album" />
+                                    </ng-template>
+                                </td>
+                                <td colspan="3">
+                                    <ng-container *ngIf="!editCache[item.musicid].edit; else timeInputTpl">
+                                        <span class="contentTr" [title]="item.time">{{item.time}}</span>
+                                    </ng-container>
+                                    <ng-template #timeInputTpl>
+                                      <input type="text" nz-input [(ngModel)]="item.time" />
+                                    </ng-template>
+                                </td>
+                                <td colspan="3">
+                                    <ng-container *ngIf="!editCache[item.musicid].edit; else musicimgInputTpl">
+                                      <div class="coverimg"><span class="contentTr" [title]="item.musicimg">{{item.musicimg}}</span> </div>
+                                    </ng-container>
+                                    <ng-template #musicimgInputTpl>
+                                      <input type="text" nz-input [(ngModel)]="item.musicimg" width="400px"/>
+                                    </ng-template>
+                                </td>
+                                <!-- <td colspan="3">{{item.creationdate | date:'yyyy-MM-dd HH:mm:ss' }}</td> -->
+                            </tr>
+                          </tbody>
+                        </nz-table>
+                  </td>                  
+                </tr>
+            </ng-template>
+        </tbody>
+    </nz-table>
+    <nz-pagination [(nzPageIndex)]="pageIndex" (nzPageIndexChange)="indexchange()" [nzTotal]="total" [(nzPageSize)]="pageSize" class="page"></nz-pagination>
+  </div>
+</div>
+<nz-drawer [nzVisible]="visible" [nzTitle]="lrctitle" [nzMaskClosable]="true"  [nzClosable]="false" (nzOnClose)="close()">
+  <p *ngFor="let text of lrctext">{{text}}</p>
+</nz-drawer>

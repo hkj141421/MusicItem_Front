@@ -1,0 +1,92 @@
+<div nz-row class="bannerRow">
+  <div nz-col class="star-banner-wp" style.background-image="url({{userinfo.userheadimg}})">
+      <div class="filter-banner"></div>
+  </div>
+</div>
+<img [src]="userinfo.userheadimg" class="userimg">
+<div nz-row class="BodyRow">
+  <div nz-col class="userInfoCol" nzSpan="16" nzPush="4">
+     
+      <div nz-row style="margin-bottom: 10px;">
+          <div nz-col >
+              <div nz-row>
+                <div nz-col nzSpan="18">
+                    <table class="nameTable">
+                        <tbody>
+                            <tr>
+                                <td><span class="username" [title]="userinfo.username">{{userinfo.username}}</span></td>
+                                <td style=" padding-left: 20px;">
+                                    <button nz-button class="followBtn" *ngIf="(!loginuser||loginuser.userid!=userinfo.userid)&&!userinfo.isfans" (click)="follow()"><i nz-icon nzType="plus" nzTheme="outline"></i>关注</button>
+                                    <button nz-button class="followBtn" *ngIf="(!loginuser||loginuser.userid!=userinfo.userid)&&userinfo.isfans" (click)="follow()"><i nz-icon nzType="check" nzTheme="outline"></i>已关注</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div nz-col nzSpan="6">
+                    <table class="socialTable">
+                        <tbody>
+                            <tr>
+                                <td><a [routerLink]="['/track',userinfo.userid]" style="color:white">{{socialData?socialData.trackcount:0}}</a></td>
+                                <td>{{socialData?socialData.followcount:0}}</td>
+                                <td>{{socialData?socialData.fanscount:0}}</td>
+                            </tr>
+                            <tr>
+                              <td><a [routerLink]="['/track',userinfo.userid]" style="color:white">动态</a></td>
+                              <td>关注</td>
+                              <td>粉丝</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+          </div>
+          <div nz-col></div>
+      </div>
+      <div nz-row style="margin-bottom: 10px;">
+        <div nz-col class="location">
+          <i nz-icon nzType="woman" nzTheme="outline" *ngIf="userinfo&&userinfo.sex=='女'" style="color: rgb(248, 155, 155);"></i>
+          <i nz-icon nzType="man" nzTheme="outline" *ngIf="userinfo&&userinfo.sex=='男'" style="color: rgb(55, 186, 237);"></i><span>{{userinfo.location?userinfo.location:''}}</span>
+
+        </div>
+      </div>
+      <div nz-row style="margin-bottom: 20px;">
+          <div nz-col>
+              <div>{{userinfo.signature!=null?userinfo.signature:'这个人很神秘哦，没有留下介绍'}}</div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div nz-row class="BodyRow">
+    <div nz-col nzSpan="16" nzPush="4">
+      <nz-tabset>
+          <nz-tab [nzTitle]="creat">
+            <ul class="CreateSheetlist">
+              <li *ngFor="let item of create" ><a [routerLink]="['/sheet',item.sheetid]"><img src="{{item.coverimg}}"><a class="coverimg"></a><a title="{{item.songsheetname}}"><div class="imgbg"><a>{{item.songsheetname}}</a></div></a></a></li>
+              <nz-empty [nzNotFoundFooter]="'你还没有创建歌单呢!'" *ngIf="!create||create.length==0"></nz-empty>
+            </ul>
+            <ng-template #creat>
+                <span class="tabtitle">{{userinfo.username}}创建的歌单（{{create.length}}）</span>
+            </ng-template>
+          </nz-tab>
+      </nz-tabset>
+    </div>
+  </div>
+
+  <div nz-row class="BodyRow">
+    <div nz-col nzSpan="16" nzPush="4">
+      <nz-tabset>
+          <nz-tab [nzTitle]="coll">
+            <ul class="CreateSheetlist">
+              <li *ngFor="let item of collect" ><a [routerLink]="['/sheet',item.sheetid]"><img src="{{item.coverimg}}"><a class="coverimg"></a><a title="{{item.songsheetname}}"><div class="imgbg"><a>{{item.songsheetname}}</a></div></a></a></li>
+              <nz-empty [nzNotFoundFooter]="'你还没有创建歌单呢!'" *ngIf="!collect||collect.length==0"></nz-empty>
+            </ul>
+          </nz-tab>
+          <ng-template #coll>
+              <span class="tabtitle">{{userinfo.username}}收藏的歌单（{{collect.length}}）</span>
+          </ng-template>
+      </nz-tabset>
+    </div>
+  </div>

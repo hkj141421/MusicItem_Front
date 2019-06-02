@@ -1,0 +1,42 @@
+.preferenceUl li{
+    float: left;
+}
+.avatar {
+    width: 128px;
+    height: 128px;
+  }
+  .upload-icon {
+    font-size: 32px;
+    color: #999;
+  }
+  .ant-upload-text {
+    margin-top: 8px;
+    color: #666;
+  }
+  .preferenceDiv{
+    width: 421px;
+    height: 40px;
+    padding-top: 8px;
+  }
+  .preferenceDiv ul{
+    list-style: none;
+  }
+  .preferenceDiv ul li{
+    float: left;
+    position: relative;
+    right: 35px;
+  }
+  .infofirstcol{
+    background-color: white;
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+  .infofirstcol form{
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .infosecondcol{
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }

@@ -1,0 +1,231 @@
+/* ::ng-deep body{
+    background-color: #f5f5f5;
+} */
+ul{
+    list-style-type: none;
+}
+.Mycontent{
+    margin-top: 40px;
+}
+.rightDiv{
+    /* border-top: 1px solid #d3d3d3;
+    height: 750px;
+    border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
+    background-color: white; */
+}
+.leftDiv{
+    /* border: 1px solid #d3d3d3;
+    height: 750px;
+     background-color: white;  */
+     margin-right: 30px;
+}
+.leftSecoendCol form{
+    text-align: center;
+    margin-top: 30px;
+}
+.leftSecoendCol form{
+    text-align: center;
+    margin-top: 30px;
+}
+.leftDiv nz-form-text ::ng-deep{
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.UserInfoDiv{
+    height: 150px;
+}
+.UserInfoDiv ul{
+    list-style: none;
+}
+.MyHeadImgDiv{
+   text-align: center;
+   vertical-align: middle;
+   height: 180px;
+}
+.MyHeadImgDiv img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 40px;
+}
+.userValueList{
+    position: absolute;
+    margin-top: 18px;
+}
+.userValueList li{
+    float: left;
+    width: 65px;
+    height: 40px;
+    /* border-right: 1px solid #d5d5d5; */
+}
+.userValueList li:nth-of-type(1){
+    border-right: 1px solid #d5d5d5;
+}
+.userValueList li:nth-of-type(2){
+    border-right: 1px solid #d5d5d5;    
+}
+.userValueList li a{
+    color: black;
+    display: block;
+    width: 77px;
+    margin-left: 0px;
+    text-align: center;
+}
+.userValueList li a:hover{
+    color:#1890ff;
+}
+.userValueList li a span{
+    display: block;
+    font-size: 20px;
+    height: 24px;
+}
+.CollectSheet{
+    width: 635px;
+    height:320px;
+    /* border: 1px solid #d5d5d5; */
+    margin-left: 25px;
+    margin-top: 40px;
+}
+.CollectSheetlist li{
+    float: left;
+    margin-right:10px;
+    position: relative;
+}
+.CollectSheetlist li img{
+    width: 90px;
+    height: 90px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.CreateSheet{
+    width: 635px;
+    height:320px;
+    /* border: 1px solid #d5d5d5; */
+    margin-left: 25px;
+    margin-top: 40px;
+}
+.CreateSheetlist li{
+    float: left;
+    margin-right:10px;
+    position: relative;
+}
+.CreateSheetlist li img{
+    width: 90px;
+    height: 90px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.CreateSheetIndexList ::ng-deep nz-pagination{
+    float: left;
+    position: absolute;
+    top: 335px;
+    left: 60px;
+}
+.CreateSheetIndexList ::ng-deep nz-pagination i{
+    margin-top: 7px;
+}
+.CollectSheetIndexList ::ng-deep nz-pagination{
+    float: left;
+    position: absolute;
+    top: 335px;
+    left: 60px;
+}
+.coverimg{
+    width: 100px;
+    height: 100px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: 0px -570px;
+    z-index: 2;
+    position: absolute;
+    left: 0px;
+}
+.imgbg{
+    z-index: 3;
+    margin-top: 0px;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    top: -30px;
+    color: gainsboro;
+    height: 30px;
+    line-height: 30px;
+    /* font-size: 15px; */
+}
+.imgbg a{
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 100px;
+    color: gainsboro;
+    font-size: 12px;
+    text-align: center;
+}
+.imgbg a:hover{
+    color: white;
+}
+.newbtnlist li ::ng-deep .ant-btn-danger{
+    background-color: white;
+    border-color: red;
+    margin-left: 60px;
+}
+.newbtnlist li ::ng-deep .ant-btn-danger:hover{
+    background-color: red;
+    color: white;
+}
+.newbtnlist{
+    float: right;
+    width: 635px;
+}
+.newbtnlist li{
+    width: 150px;
+    float: left;
+    
+}
+.newbtnlist li:first-child{
+    margin-right: 295px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.newbtnlist li:nth-child(2){
+    margin-top: 5px;
+}
+.CreateSheetlist nz-empty ::ng-deep {
+    position: relative;
+    top: 40px;
+}
+.CollectSheetlist nz-empty ::ng-deep{
+    position: relative;
+    top: 40px;
+}
+.usernameSpan{
+    display: block;
+    text-align: center;
+    width: 200px;
+    margin-left: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.leftFirstCol{
+    background-color: white;
+    height: 380px;
+    margin-bottom: 20px;
+}
+.leftSecoendCol{
+    background-color: white;
+    min-height: 200px;
+}
+.rightFirstRow{
+    background-color: white;
+    /* padding: 0px; */
+    height: 380px;
+    margin-bottom: 20px;
+}
+.rightSecondRow{
+    background-color: white;
+    height: 380px;
+    margin-bottom: 40px;
+}

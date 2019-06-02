@@ -1,0 +1,25 @@
+<div nz-row>
+    <div nz-col>
+      <ul class="singerUl">
+        <li *ngFor="let item of result" >
+            <nz-card [nzCover]="coverTemplate" nzHoverable="true" [routerLink]="['/singerinfo',item.singerid]">
+                <nz-card-meta [nzTitle]="item.singername"></nz-card-meta>
+                <ng-template #coverTemplate>
+                    <img [alt]="item.singername" [src]="item.singerimg" class="cov"/>
+                  </ng-template>
+              </nz-card>
+        </li>
+      </ul>
+      <!-- <nz-list [nzDataSource]="result" [nzRenderItem]="item" [nzGrid]="{ gutter: 20, span: 4 }">
+        <ng-template #item let-item>
+            <nz-list-item [nzContent]="card">
+                <ng-template #card>
+                  
+                </ng-template>
+            </nz-list-item>
+        </ng-template>
+      </nz-list> -->
+      <nz-empty nzNotFoundContent="很抱歉，未能找到相关搜索结果！" *ngIf="!result||result.length==0" ></nz-empty>
+      <nz-pagination [(nzPageIndex)]="pagenumber" [nzTotal]="total" [(nzPageSize)]="pagesize" nzHideOnSinglePage="true" (nzPageIndexChange)="IndexChange()" class="page"></nz-pagination>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+.userUl ::ng-deep .ant-list-item:nth-child(even)
+{
+    background-color: white;
+    padding-left: 5%;
+}
+.userUl ::ng-deep .ant-list-item:nth-child(odd)
+{
+    background-color: #f5f5f5;
+    padding-left: 5%;
+}
+.userUl{
+    margin-bottom: 5%;
+}
+.desc{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    color: #666;
+}
+.userUl ::ng-deep .ant-list-item-meta-description
+{
+    width: 75%;
+}

@@ -1,0 +1,783 @@
+html{
+    height: 0px;
+}
+body{
+    /* height: 0px; */
+    outline: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+li{
+list-style: none;
+}
+a{
+    color: gray;
+    outline: none;
+    text-decoration: none;
+}
+.Audio1{
+    height: 6px;
+    width: 100%;
+    border: 1px black solid;
+    background-color: rgba(0,0,0, 0.8);
+    box-shadow: #333 0px 1px 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    transition: height 1s;
+    z-index: 3;
+}
+.Audio1:hover{
+    height: 60px;
+    z-index: 3;
+}
+.Audio2{
+    height: 60px;
+    width: 100%;
+    border: 1px black solid;
+    background-color: rgba(0,0,0, 0.8);
+    box-shadow: #333 0px 1px 10px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    transition: height 1s;
+    z-index: 3;
+}
+.Audio_Btnlist{
+    position: relative;
+    top: -10px;
+    left: 145px;
+}
+
+.Audio_Btnlist ul li{
+    float: left;
+    margin-right: 15px;
+}
+.Audio_Songimg{
+    width: 0px;
+}
+.Audio_Songimg img{
+    position: relative;
+    left: 160px;
+}
+
+.Audio_Progressbar{
+    border: 1px solid ;
+    height: 10px;
+    width: 550px;
+    border-radius: 10px 10px;
+    position: relative;
+    left: 380px;
+    top: -20px;
+    background-color: rgba(0,0,0, 1);
+}
+.songname{
+    color: white;
+    margin-left: 40px;
+    display: inline-block;
+    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Bar{
+    height: 10px;
+    width: 0px;
+    border-radius: 10px 10px;
+    background-color: red;
+}
+
+.Progress_Btn{
+    height: 25px;
+    width: 25px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    position: relative;
+    top: -16px;
+    left: -5px;
+}
+.Progress_Btn:after{
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: red;
+    display: block;
+    position: relative;
+    top: 8px;
+    left: 8px;
+}
+
+.Audio_Songinfo{
+    WIDTH: 300px;
+    position: relative;
+    height: 26px;
+    top: -45px;
+    float: left;
+    left: 215px;
+}
+
+.Audio_Songinfo span{
+    margin-right: 15px;
+    color: white;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Audio_Songlist{
+    position: fixed;
+    bottom: 60px;
+    left: 195px;
+    width: 980px;
+    height: 300px;
+    border: 1px solid;
+    background-color: black;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.Audio_Time{
+    position: relative;
+    top: -50px;
+    color: white;
+    left: 945px;
+    width: 50px;
+    font-size: 12px;
+}
+.Audio_Time span{
+    margin: 5px;
+}
+.Audio_Volumediv{
+    position: relative;
+    height: 115px;
+    width: 30px;
+    background-color: rgba(0,0,0,0.8);
+    top: -246px;
+    visibility:hidden;
+    left: 1040px;
+    z-index: 3;
+}
+.Audio_VolumeBar{
+    height: 98px;
+    width: 5px;
+    background-color: black;
+    /* margin-left: 13px; */
+    /* margin-top: 10px; */
+    position: relative;
+    top: 10px;
+    left: 13px;
+}
+.Volume_Btn{
+    width: 15px;
+    height: 15px;
+    /* background-color: white; */
+    border-radius: 50%;
+    margin-left: -4px;
+    /* margin-bottom: 0px; */
+    position: relative;
+    /* top: 0px; */
+    background-color: white;
+    top: -88px;
+    left: 12px;
+}
+.Volume_Btn:after{
+    content: '';
+    display: block;
+    height: 7px;
+    width: 7px;
+    background-color: red;
+    border-radius: 50%;
+    /* margin-left: 4px; */
+    /* margin-bottom: 25px; */
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+.Volume_Bar{
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    height: 97px;
+    width: 5px;
+    /* top: 41px; */
+    display: block;
+    
+}
+.Audio_Volumebtn{
+    position: relative;
+    top: -220px;
+    left: 1045px;
+    width: 25px;
+    height: 30px;
+    z-index: 3;
+}
+
+.Up_Btn{height:40px; width:40px; display:block; position:relative; top: 6px;} 
+
+.Up_Btn{height:36px; width:36px; border:3px solid gray; border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;}
+
+.Up_Btn:before{content:''; height:0; width:0; display:block; border:10px transparent solid; border-left-width:0; border-right-color:gray; position:absolute; top:6px; left:10px;}
+
+.Up_Btn:after{content:''; height:20px; width:3px; display:block; background:gray; position:absolute; top:6px; left:6px;}
+
+.Up_Btn:hover{
+    border: white 3px solid;
+}
+.Up_Btn:hover:before{
+    border-right-color:white;
+}
+.Up_Btn:hover:after{
+    border: white 3px solid;
+}
+
+.Pause_Btn{ display:block; position:relative;} 
+
+.Pause_Btn{height:45px; width:45px; border:3px solid gray; border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:20px;}
+
+.Pause_Btn:before, .Pause_Btn:after{content:''; height:20px; width:4px; display:block; background:gray; position:absolute; top:8px; left:12px;}
+
+.Pause_Btn:after{left:22px;}
+
+.Pause_Btn:hover{
+    border: white 3px solid;
+}
+.Pause_Btn:hover:before{
+    /* border-right-color:white; */
+    border: white 3px solid;
+}
+.Pause_Btn:hover:after{
+    border: white 3px solid;
+}
+
+.Play_Btn{height:40px; width:40px; display:block; position:relative;} 
+
+.Play_Btn{height:45px; width:45px; border:3px solid gray; border-radius:40px;-webkit-border-radius:40px;-moz-border-radius:40px;}
+.Play_Btn:before{content:''; height:0; width:0; display:block; border:15px transparent solid; border-right-width:0; border-left-color:gray; position:absolute; top:5px; left:16px;}
+
+.Play_Btn:hover{
+    border: white 3px solid;
+}
+.Play_Btn:hover:before{
+    border-left-color:white;
+}
+
+
+
+.Down_Btn{height:40px; width:40px; display:block; position:relative;top: 5px;} 
+
+.Down_Btn{height:36px; width:36px; border:3px solid gray; border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;}
+
+.Down_Btn:before{content:''; height:0; width:0; display:block; border:10px transparent solid; border-right-width:0; border-left-color:gray; position:absolute; top:6px; left:10px;}
+
+.Down_Btn:after{content:''; height:20px; width:4px; display:block; background:gray; position:absolute; top:6px; left:22px;}
+
+.Down_Btn:hover{
+    border: white 3px solid;
+}
+.Down_Btn:hover:before{
+    border-left-color:white;
+}
+.Down_Btn:hover:after{
+    border: white 3px solid;
+}
+
+.None_Volume{height:40px; width:40px; display:block; position:relative;} 
+
+.None_Volume{position:relative;}
+
+.None_Volume:before{content:''; height:20px; width:12px; display:block; background:gray; border-radius:4px 0 0 4px;-webkit-border-radius:4px 0 0 4px;-moz-border-radius:4px 0 0 4px; position:absolute; top:10px; left:6px; }
+
+.None_Volume:after{content:''; height:20px; width:0; display:block; border:10px transparent solid; border-left-width:0; border-right-color:gray; position:absolute; top:0px; left:20px; }
+
+.demoSpan1,.demoSpan2{height:30px; width:20px; display:block; position:relative;} 
+
+.demoSpan1{position:relative;}
+
+.demoSpan1:before{
+    content: '';
+    height: 10px;
+    width: 6px;
+    display: block;
+    background: gray;
+    position: absolute;
+    top: 12px;
+    left: 0px;}
+
+.demoSpan1:after{    content: '';
+    height: 16px;
+    width: 0;
+    display: block;
+    border: 10px transparent solid;
+    border-left-width: 0;
+    border-right-color: gray;
+    position: absolute;
+    top: 7px;
+    left: 0px;}
+
+.demoSpan2{position:absolute; top:0; left:0;}
+
+.demoSpan2:before{
+    content: '';
+    height: 35px;
+    width: 40px;
+    display: block;
+    border: 5px solid transparent;
+    border-right: 4px solid gray;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    position: absolute;
+    top: 0px;
+    left: -14px;
+    left: -19px;}
+
+.demoSpan2:after{    content: '';
+    height: 25px;
+    width: 30px;
+    display: block;
+    border: 9px solid transparent;
+    border-right: 4px solid gray;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    position: absolute;
+    top: 4px;
+    left: -15px;}
+    .demoSpan1:hover:before{
+       background-color: white;
+    }
+    .demoSpan1:hover:after{
+        border-right-color: white;
+    }
+    .demoSpan2:hover:before{
+        border-right: 4px solid white;
+     }
+     .demoSpan2:hover:after{
+        border-right: 4px solid white;
+     }
+
+
+
+    .Audio_Songlistbtn{
+        position: relative;
+        top: -279px;
+        left: 1080px;
+        width: 18px;
+    }
+    
+        .Audio_Collectbtn{
+            position: relative;
+            top: -77px;
+            left: 1130px;
+            width: 20px;
+            font-size: 25px;
+            color: gray
+        }
+        .Audio_Collectbtn:hover{
+            color: white;
+        }
+    
+        .listheadbg{
+            height: 40px;
+            color: white;
+            background: url(../../../assets/images/head.jpg);
+         background-repeat: no-repeat;
+          background-size: cover;
+          filter: blur(57px);
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 40px;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+        .Songlistbg{
+            width: 555px;
+    height: 260px;
+    background-color: rgba(0, 0, 0, 0.8);
+    float: left;
+    background: url(../../../assets/images/picture1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;;
+            filter: blur(167px);
+            border: 1px solid white;
+            overflow: hidden;
+
+        }
+        .Songlyicbg{
+            width: 420px;
+            height: 260px;
+            /* background-color: rgba(0, 0, 0, 0.8); */
+            /* background: url(../../../assets/images/head.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: 420px 260px; */
+            float:right;
+            /* filter: blur(167px); */
+            /* border: 1px solid white; */
+            overflow: hidden;
+        }
+        .Audio_listHead{
+            width: 978px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    color: white;
+    line-height: 40px;
+    font-size: 14px;
+    
+        }
+        .Audio_Songlist{
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        .playcount{
+            margin-left: 30px;
+            margin-right: 420px;
+        }
+        .Lycdiv{
+            width: 420px;
+            /* float: right; */
+            position: relative;
+            left: 557px;
+            top: -40px;
+            margin: 0px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .closelist{
+            width: 1px;
+            height: 14px;
+            background-color: gray;
+            position: relative;
+            transform: rotate(45deg);
+            top: -25px;
+            left: 400px;
+        }
+        .closelist:after{
+            content: "";
+            display: block;
+            width: 1px;
+            height: 14px;
+            background-color: gray;
+            transform: rotate(270deg);
+        }
+        .Songlist{
+            width: 555px;
+    height: 260px;
+    position: absolute;
+    border-right: black solid;
+   
+        }
+        .Songlist table{
+            width: auto;
+            height: auto;
+            font-size: 12px;
+        }
+        .SonglistTr{
+            width: 550px;
+            height: 30px;
+            color: gray;
+            border-top-style: solid;
+            border-top-color: rgba(0,0,0,1);
+            border-top-width: 1px;
+            background-color:rgba(0,0,0,0.2); 
+        }
+        /* .Songlist table tr:first-child{
+            background-color:rgba(0,0,0,0.8); 
+            color: white;
+        }
+        .Songlist table tr:first-child a{
+     
+            color: white;
+        } */
+        .Songlist table tr:hover{
+            background-color:rgba(0,0,0,0.8); 
+            color: white;
+        }
+        .currentSong{
+            background-color:rgba(0,0,0,0.8); 
+            color: white;
+        }
+        .Songlist table tr:hover a{
+            
+            color: white;
+        }
+        .Songlist table tr td:nth-child(1){
+            /* width: 200px; */
+            text-indent: 30px;
+            
+        }
+        .Songlist table tr td:nth-child(2){
+            width: 175px;
+        }
+        .Songlist table tr td:nth-child(3){
+            width: 100px;
+            text-align: center;
+        }
+        .Songlist table tr td:nth-child(4){
+            width: 105px;
+            text-align: center;
+        }
+        .Songlyic{
+            width: 420px;
+            height: 260px;
+            float: right;
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            border-top: 1px solid gray;
+        }
+        .Songlist table tr td:nth-child(2) ul li i{
+            float: left;
+            width: 30px;
+            font-size: 18px;
+            color: gray;
+            text-align: center;
+            visibility: hidden;
+        }
+        .Songlist table tr td:nth-child(2) ul li a{
+            float: left;
+            width: 30px;
+            font-size: 18px;
+            color: gray;
+            text-align: center;
+            visibility: hidden;
+        }
+        .Songlist table tr td:nth-child(2):hover ul li i{
+            visibility: visible;
+        }
+        .Songlist table tr td:nth-child(2):hover ul li a{
+            visibility: visible;
+        }
+        .Songlist table tr td:nth-child(2) ul li i:hover{
+            color: white;
+        }
+        .Songlist table tr td:nth-child(2) ul li a:hover{
+            color: white;
+        }
+        .Songlist{
+            overflow: auto;
+            max-height: 256px;
+        }
+        .Songlist::-webkit-scrollbar{
+            width: 10px;
+            color: gray;
+        }
+        .Songlist::-webkit-scrollbar-thumb{
+            width: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* .Songlyic{
+            
+        } */
+        .Songlyic ul::-webkit-scrollbar{
+            width: 10px;
+            color: white;
+        }
+       
+        .Songlyic ul::-webkit-scrollbar-thumb{
+            width: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+             
+        }
+        .Audio_Sequence{
+            color: gray;
+            position: relative;
+            top: -256px;
+            left: 1165px;
+            width: 25px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .As{
+            color: blue;
+        }
+        .Audio_Sequence:hover{
+            color: white;
+        }
+        .Lock{
+            position: relative;
+            top: -348px;
+            left: 1200px;
+            width: 40px;
+            color: gray;
+            font-size: 20px;
+        }
+        .Lock:hover{
+            color: white;
+        }
+        .line{
+            width: 1px;
+            background-color: black;
+            height: 40px;
+            position: relative;
+            top: -310px;
+            left: 1115px;
+        }
+        .closediv{
+            width: 20px;
+            height: 20px;
+            position: relative;
+            left: 390px;
+            top: -42px;
+        }
+        .closediv:hover .closelist{
+            background-color: white;
+        }
+        .closediv:hover .closelist:after{
+            background-color: white;
+        }
+        .single{
+            width: 20px;
+            height: 8px;
+            border: 3px solid;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 4px;
+            border-top-width: 0;
+            position: relative;
+            top: 15px;
+            left: 0px;
+        }
+        .single:before{
+            content: '';
+            height: 7px;
+            width: 15px;
+            display: block;
+            position: relative;
+            top: -6px;
+            left: -3px;
+            border: 3px solid;
+            border-bottom: 0;
+            border-right: 0;
+            border-top-left-radius: 5px;
+
+        }
+        .single:after{
+            content: '';
+            /* height: 10px; */
+            /* width: 8px; */
+            display: block;
+            position: relative;
+            /* border: solid; */
+            /* border-width: 10px 10px 20px 20px; */
+            border-left: 8px;
+            border-bottom: 5px transparent;
+            border-right: 5px transparent;
+            border-top: 5px transparent;
+            border-style: solid;
+            /* border-radius: 9px; */
+            top: -22px;
+            left: 12px;
+        }
+        .Audio_Sequence:hover .singlenum{
+            background-color: white;
+        }
+        .singlenum{
+            height: 6px;
+            background-color: gray;
+            width: 2px;
+            position: relative;
+            top: -9px;
+            left: 5px;
+        }
+        .Songlyic ul{
+            text-align: center;
+            color: gray;
+            font-size: 12px;
+            height: 210px;
+            overflow: auto;
+            position: relative;
+            top: 30px;
+            max-height: 200px;
+        }
+        .Songlyic ul li{
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+        }
+        .playcount{
+            color: gray;
+            
+        }
+        .lrclight{
+            color:white;
+        }
+        .nomusic{
+            color: gray;
+            width: 300px;
+            position: relative;
+            font-size: 12px;
+            top: 100px;
+            left: 140px;
+        }
+        .nomusic li{
+            margin-top: 10px;
+            text-align: center;
+        }
+        .Songlist_downloadbtn:hover{
+            color: white;
+
+        }
+.fa-play-circle-o{
+    color: gray;
+}
+.fa-pause-circle-o{
+    color: gray;
+}
+.fa-step-backward{
+    color: gray;
+}
+.fa-step-forward{
+    color: gray;
+}
+.fa-play-circle-o:hover{
+    color: white;
+}
+.fa-step-forward:hover{
+    color: white;
+}
+.fa-step-backward:hover{
+    color: white;
+}
+.fa-signal{
+    color: gray;
+    font-size: 20px;
+}
+.fa-bars{
+    color: gray;
+    font-size: 20px;
+}
+.itemName{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
+    display: block;
+}
+.itemSinger{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px;
+    display: block;
+}
+.btnUl{
+    position: relative;
+    left: -20px;
+}
+.fa-window-close{
+    position: relative;
+    left: 60px;
+    top: -15px;
+    color: white;
+}
+.lrcline{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

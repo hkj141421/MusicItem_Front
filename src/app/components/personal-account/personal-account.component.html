@@ -1,0 +1,170 @@
+
+<div nz-row nzType="flex" style="margin-bottom: 40px;">
+  <div nz-col nzSpan="14" nzPush="4" class="personalDiv">
+      <nz-collapse >
+          <nz-collapse-panel  [nzHeader]="emailIcon" nzDisabled="true" nzActive="true">
+              
+            <nz-card [nzTitle]="changeemail" style="width:620px; margin-left: 70px" >
+            
+                <form nz-form nzLayout="inline">
+                        <nz-form-item >
+                            <nz-form-label nzFor="emailaddress">邮箱账号已绑定</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input  class="useremail" name="useremail" [(ngModel)]="emailGroup.useremail" >
+                                
+                            </nz-form-control>
+                        </nz-form-item>
+                    </form>
+                    <form nz-form nzLayout="inline">
+                            <nz-form-item>
+                                <nz-form-label nzFor="emailaddress">邮&nbsp;&nbsp;&nbsp;箱</nz-form-label>
+                                <nz-form-control>
+                                    <input nz-input  (ngModelChange)="onemailChange($event)"  name="emailaddress"  [nzAutocomplete]="emailadd" [(ngModel)]="emailGroup.newemail" type="email">
+                                    <nz-autocomplete #emailadd>
+        
+                                            <nz-auto-option *ngFor="let item of emailcollection"  [nzValue]="item">{{item}}</nz-auto-option>
+                                    </nz-autocomplete>
+                                    
+                                </nz-form-control>
+                            </nz-form-item>
+                        </form>
+                        <ng-template #changeemail>
+                                <div>
+                    
+                                    <span style="margin-left: 250px;">更换绑定</span>
+                                </div>
+                                  
+                       </ng-template>
+                <form nz-form nzLayout="inline">
+                    <nz-form-item>
+                        <nz-form-label nzFor="VerificationCode">验证码</nz-form-label>
+                        <nz-form-control nzSpan="1-24">
+                            <input nz-input type="text" name="VerificationCode" class="VerificationCode" minlength="6" maxlength="6" [(ngModel)]="emailGroup.VerificationCode">
+                            <button nz-button nzType="primary"  nzSize="small" (click)="sendCode()" [disabled]="Codebtn">{{CodeBtnText}}</button>
+                        </nz-form-control>
+                        
+                    </nz-form-item>
+                          
+                  </form>
+                  <form nz-form nzLayout="inline">
+                        <nz-form-item>
+                            
+                            <nz-form-control nzSpan="1-24" class="surebtn">
+                                <button nz-button (click)="saveEmail()"  >确认更换</button>
+    
+                            </nz-form-control>
+                            
+                        </nz-form-item>
+                              
+                    </form>
+            </nz-card>
+              
+                
+              
+          </nz-collapse-panel >
+          <nz-collapse-panel [nzExpandedIcon]="extraTpl" [nzHeader]="pwd" nzDisabled="true" nzActive="true">
+              <nz-card [nzTitle]="changepwd" style="width: 620px;margin-left: 70px;">
+                
+                    <form nz-form nzLayout="inline" >
+                            <nz-form-item>
+                                <nz-form-label nzFor="oldpwd">原&nbsp;&nbsp;密&nbsp;码</nz-form-label>
+                                <nz-form-control>
+                                        <nz-input-group [nzSuffix]="suffixTemplate">
+                                                <input
+                                                  [type]="pwdGroup.oldpwdVisible ? 'text' : 'password'"
+                                                  nz-input
+                                                  placeholder="input password"
+                                                  name="oldpwd"
+                                                  [(ngModel)]="pwdGroup.oldpwd"
+                                                />
+                                              </nz-input-group>
+                                              <ng-template #suffixTemplate>
+                                                <i nz-icon [nzType]="pwdGroup.oldpwdVisible ? 'eye' : 'eye-invisible'" (click)="pwdGroup.oldpwdVisible = !pwdGroup.oldpwdVisible" style="position: relative;top: -10px;"></i>
+                                              </ng-template>
+                                   
+                                    
+                                </nz-form-control>
+                            </nz-form-item>
+                        </form>
+                        <form nz-form nzLayout="inline">
+                                <nz-form-item>
+                                    <nz-form-label nzFor="newpwd">新&nbsp;&nbsp;密&nbsp;码</nz-form-label>
+                                    <nz-form-control>
+                                       <nz-input-group  [nzSuffix]="suffixTemplate2">
+                                        <input
+                                        [type]="pwdGroup.newpwdVisible ? 'text' : 'password'"
+                                        nz-input
+                                        placeholder="input password"
+                                        name="newpwd"
+                                        [(ngModel)]="pwdGroup.newpwd"
+                                       
+                                      />
+                                    </nz-input-group>
+                                    <ng-template #suffixTemplate2>
+                                      <i nz-icon [nzType]="pwdGroup.newpwdVisible ? 'eye' : 'eye-invisible'" (click)="pwdGroup.newpwdVisible = !pwdGroup.newpwdVisible" style="position: relative;top: -10px;"></i>
+                                    </ng-template>
+                                        
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </form>
+                            <ng-template #changepwd>
+                                    <div>
+                        
+                                        <span style="margin-left: 285px;">修改密码</span>
+                                    </div>
+                                      
+                           </ng-template>
+                    <form nz-form nzLayout="inline">
+                        <nz-form-item>
+                            <nz-form-label nzFor="repwd">重复密码</nz-form-label>
+                            <nz-form-control nzSpan="1-24">
+                                    <nz-input-group [nzSuffix]="suffixTemplate3">
+                               
+                                <input
+                                [type]="pwdGroup.repwdVisible ? 'text' : 'password'"
+                                nz-input
+                                placeholder="input password"
+                                [(ngModel)]="pwdGroup.repwd"
+                                name="repwd"
+                                
+                              />
+                            </nz-input-group>
+                            <ng-template #suffixTemplate3>
+                              <i nz-icon [nzType]="pwdGroup.repwdVisible ? 'eye' : 'eye-invisible'" (click)="pwdGroup.repwdVisible = !pwdGroup.repwdVisible" style="position: relative;top: -10px;left: -3px;"></i>
+                            </ng-template>
+                            </nz-form-control>
+                            
+                        </nz-form-item>
+                              
+                      </form>
+                      <form nz-form nzLayout="inline">
+                            <nz-form-item>
+                                
+                                <nz-form-control nzSpan="1-24" class="surebtn">
+                                    <button nz-button (click)="savepwd()" style="margin-left: 16px;">确认修改</button>
+        
+                                </nz-form-control>
+                                
+                            </nz-form-item>
+                                  
+                        </form>
+              </nz-card>
+          </nz-collapse-panel>
+      </nz-collapse>
+      <ng-template #emailIcon>
+        <div>
+            <img src="../../../assets//images/email.png" width="40px" height="40" style="margin-right: 10px;">
+            <span style="font-size: 20px;">邮箱绑定</span>
+        </div>
+          
+      </ng-template>
+       <ng-template #pwd>
+         <div>
+            <img src="../../../assets//images/email.png" width="40px" height="40" style="margin-right: 10px;">
+            <span style="font-size: 20px;">更改密码</span>
+            
+         </div>
+          
+      </ng-template>
+  </div>
+</div>

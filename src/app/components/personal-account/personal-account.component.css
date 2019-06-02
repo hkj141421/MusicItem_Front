@@ -1,0 +1,35 @@
+::ng-deep .ant-collapse-header{
+    height: 80px;
+    padding-top: 20px;
+}
+::ng-deep .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow
+{
+    display: none;
+}
+::ng-deep .ant-collapse > .ant-collapse-item > .ant-collapse-header{
+    padding-top: 18px;
+}
+::ng-deep .ant-form-item-children input{
+    width: 300px;
+    
+    margin-bottom: 20px;
+}
+.VerificationCode{
+    width: 200px;
+    margin-right: 10px;
+}
+.surebtn{
+    margin-left: 55px;
+}
+.personalDiv ::ng-deep .ant-form-item{
+    margin-left: 150px;
+}
+.useremail{
+    width: 242px;
+}
+::ng-deep .ant-input-group {
+    width: 300px;
+}
+.personalDiv ::ng-deep .ant-form{
+    margin-left: -45px;
+}

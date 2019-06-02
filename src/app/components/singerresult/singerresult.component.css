@@ -1,0 +1,35 @@
+.page ::ng-deep .ant-pagination
+{
+    text-align: center;
+}
+.singerUl
+{
+    list-style: none;
+    padding: 0%;
+    margin-bottom: 3%;
+}
+.singerUl::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+.singerUl li{
+    float: left;
+    margin: 1%
+}
+.cov{
+    width: 120px;
+    height: 120px;;
+}
+.singerUl ::ng-deep .ant-card-body
+{
+    padding: 10px;
+}
+.singerUl ::ng-deep .ant-card-meta-title
+{
+    font-size: 10px;
+}
+.singerUl li ::ng-deep .ant-card
+{
+    width: 120px;
+}

@@ -1,0 +1,90 @@
+<!-- <div nz-row>
+  <div nz-col nzSpan="10"> -->
+    <p><span class="nzvComment">评论</span><span>共{{commentCount}}条评论</span></p>
+      <nz-comment [nzAuthor]="userinfo?userinfo.username:'请登录后评论'">
+          <nz-avatar nz-comment-avatar  [nzSrc]="userinfo?userinfo.userheadimg:''"></nz-avatar>
+          <nz-comment-content class="inputcomment">
+            <nz-form-item>
+              <textarea [(ngModel)]="inputValue" nz-input rows="3" style="outline: 0;"></textarea>
+            </nz-form-item>
+            <nz-form-item>
+              <button nz-button class="commentbtn" [nzLoading]="submitting"  (click)="addComment()">
+                发表评论
+              </button>
+            </nz-form-item>
+          </nz-comment-content>
+        </nz-comment>
+        
+        <nz-list class="commentlist">
+          <nz-list-item *ngFor="let comment of commentArray;let i=index" >
+            <ul class="commentul">
+              <li>
+                  <nz-comment nzDatetime="{{comment.comment.date | date:'yyyy-MM-dd HH:mm:ss'}} " [nzAuthor]="comment.comment.username" class="commentitem">
+                      <nz-avatar nz-comment-avatar  [nzSrc]="comment.comment.userheadimg"></nz-avatar>
+                      <nz-comment-content>
+                          {{comment.comment.content}}
+                      </nz-comment-content>
+                      <nz-comment-action  >
+                          <i
+                          nz-tooltip
+                          nzTitle="赞"
+                          nz-icon
+                          type="like"
+                          [theme]="comment.comment.likestate? 'twotone' : 'outline'"
+                          (click)="likeComment(i)"
+                         
+                        ></i>
+                        <span class="count like">{{comment.comment.fabulous}}
+                          </span>
+                      </nz-comment-action>
+                      <nz-comment-action >
+                          <i nz-icon nzType="message" nzTheme="outline" (click)="openReply(i)"></i>{{comment.comment.count}}
+                      </nz-comment-action>
+                      <nz-list class="replylist" *ngIf="commentArray[i].replyVisible">
+                          <nz-list-item *ngFor="let reply of comment.replys;let j=index;" >
+                              <nz-comment nzDatetime="{{reply.date | date:'yyyy-MM-dd HH:mm:ss'}} " [nzAuthor]="reply.username" style="width: 100%">
+                                <nz-avatar nz-comment-avatar [nzSrc]="reply.userheadimg"></nz-avatar>
+                                <nz-comment-content>
+                                  {{reply.content}}
+                                </nz-comment-content>
+                                <nz-comment-action  >
+                                  <i
+                                  nz-tooltip
+                                  nzTitle="赞"
+                                  nz-icon
+                                  type="like"
+                                  [theme]="reply.likestate  ? 'twotone' : 'outline'"
+                                  (click)="likeReply(i,j)"
+                                  
+                                ></i>
+                                <span class="count like">{{reply.fabulous}}</span>
+                              </nz-comment-action>
+                              
+                              </nz-comment>
+                             
+                          </nz-list-item>
+                        </nz-list>
+                    </nz-comment>
+
+              </li>
+              <li  *ngIf="this.commentArray[i].replyVisible">
+                  <nz-comment class="inputreply" [nzAuthor]="userinfo.username" >
+                      <nz-avatar nz-comment-avatar  [nzSrc]="userinfo.userheadimg" ></nz-avatar>
+                      <nz-comment-content>
+                        <nz-form-item>
+                          <textarea [(ngModel)]="commentArray[i].replyInput" nz-input ></textarea>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <button nz-button class="commentbtn" [nzLoading]="submitting" (click)="addReply(i)" nzSize="small">
+                            发表评论
+                          </button>
+                        </nz-form-item>
+                      </nz-comment-content>
+                    </nz-comment>
+              </li>
+            </ul> 
+          </nz-list-item>
+        </nz-list>
+        <nz-pagination [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzTotal]="commentCount" (nzPageIndexChange)="changePage()"  class="page" [nzHideOnSinglePage]=true></nz-pagination>
+  <!-- </div>
+</div> -->

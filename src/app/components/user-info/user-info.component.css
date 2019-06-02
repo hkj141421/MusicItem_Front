@@ -1,0 +1,131 @@
+.star-banner-wp{
+    /* position: absolute;
+    top: -30px;
+    left: -30px; */
+    height: 320px;
+    overflow: hidden;
+    filter: blur(30px);
+    background-size: cover;
+    background-position: center center;
+}
+.filter-banner{
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+}
+.CreateSheet{
+    width: 635px;
+    height:320px;
+    /* border: 1px solid #d5d5d5; */
+    margin-left: 25px;
+    margin-top: 40px;
+}
+.CreateSheetlist li{
+    float: left;
+    margin-right:10px;
+    position: relative;
+}
+.CreateSheetlist li img{
+    width: 140px;
+    height: 140px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.coverimg{
+    width: 140px;
+    height: 140px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    z-index: 2;
+    position: absolute;
+    left: 0px;
+}
+.imgbg{
+    z-index: 3;
+    margin-top: 0px;
+    /* margin: 0px; */
+    /* padding: 0px; */
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    top: -30px;
+    left: 5px;
+    width: 140px;
+    color: gainsboro;
+    height: 30px;
+    line-height: 30px;
+}
+.imgbg a{
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 140px;
+    color: gainsboro;
+    font-size: 12px;
+    text-align: center;
+}
+.imgbg a:hover{
+    color: white;
+}
+.userimg{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 225px;
+    left: 17%;
+    z-index: 3;
+}
+.bannerRow{
+    overflow: hidden;
+}
+.userInfoCol{
+    margin-top: 60px;
+}
+.BodyRow{
+    background-color: white;
+}
+ul{
+    list-style: none;
+}
+.socialTable{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: -125px;
+    /* font-weight: 700; */
+    color: white;
+}
+.username
+{
+    font-size: 26px;
+    color: #333;
+    font-family: "PingFang SC","Microsoft Yahei";
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 300px;
+}
+.BodyRow ::ng-deep .ant-tabs-ink-bar{
+    height: 0px;
+}
+.tabtitle{
+    color: #666;
+    font-size: 14px;
+}
+.location>i{
+    font-size: 15px;
+    margin-right: 10px;
+}
+.location span{
+    margin-right: 20px;
+}
+.followBtn{
+    padding: 0px 5px;
+    font-size: 12px;
+    height: 20px;
+    background-color: #c20c0c;
+    color: white;
+    border: 0;
+}

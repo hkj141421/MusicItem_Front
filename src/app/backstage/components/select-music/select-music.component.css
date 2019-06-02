@@ -1,0 +1,75 @@
+.childTitle th span{
+    text-align: left;
+}
+.child ::ng-deep .ant-table-placeholder{
+    padding: 0px;
+}
+.contentTr{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.page ::ng-deep  .ant-pagination{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.delete{
+    width: 30px;
+    height: 20px;
+    font-size: 10px;
+    padding: 0;
+}
+.search-box {
+    padding: 8px;
+  }
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+.search-box input {
+width: 188px;
+margin-bottom: 8px;
+display: block;
+}
+
+.search-box button {
+width: 90px;
+margin-right: 5px;
+}
+
+.search-button {
+margin-right: 8px;
+}
+.musicname{
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.singer{
+    width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.musicaddress{
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.style{
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.coverimg{
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

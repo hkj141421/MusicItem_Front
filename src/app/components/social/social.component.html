@@ -1,0 +1,105 @@
+<div nz-row class="trackFirstRow">
+  <div nz-col nzSpan="4" nzPush="2" class="trackleftcol">
+      <div nz-row>
+        <div nz-col class="trackuserinfoDiv">
+            <div class="SocialHeadImgDiv">
+                <img [src]="userinfo.userheadimg">
+            </div>
+            <div class="SocialUserInfoDiv">
+                    <span class="SocialusernameSpan">{{userinfo.username}}</span>
+                    <ul class="SocialuserValueList">
+                        <li><a><span>{{socialData?socialData.trackcount:0}}</span></a></li>
+                        <li><a><span>{{socialData?socialData.followcount:0}}</span></a></li>
+                        <li><a><span>{{socialData?socialData.fanscount:0}}</span></a></li>
+                    </ul>
+                    <ul class="SocialTitleList">
+                        <li><a>动态</a></li>
+                        <li><a>关注</a></li>
+                        <li><a>粉丝</a></li>
+                    </ul>
+            </div>
+        </div>
+        <div nz-col class="Makeinfo">
+              <a [routerLink]="['/setting',userinfo.userid]" style="outline: none">编辑资料</a>
+        </div>
+        <div nz-col class="Makeinfo">
+              <a [routerLink]="['/track',userinfo.userid]" style="outline: none">我的动态</a>
+        </div>
+      </div>
+      
+  </div>
+  <div nz-col nzSpan="14" nzPush="2" class="trackrightCol">
+    <div nz-row>
+        <div nz-col>
+            <textarea rows="4" class="tracktext" [(ngModel)]="tracktext"></textarea>
+            <diV class="tracktextbottom">
+              <span style="color:#999;display: inline-block;width: 18%;">剩余可输入<span style="color:black">{{1000-tracktext.length}}</span>字符</span>
+              <nz-upload nzAccept="" [nzCustomRequest]="customUploadRequest" [nzSize]='1024*5' nzAccept="image/*" nzMultiple="true" [nzLimit]='3' [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload">
+                 <nz-badge [nzCount]="imagesList.length"><a nz-popover [nzContent]="contentTemplate"><i nz-icon nzType="picture" nzTheme="outline"></i></a></nz-badge>
+              </nz-upload>
+              
+              <button nz-button (click)="publishTrack()" >发布</button>
+            </diV>
+            <ng-template #contentTemplate>
+                <ul class="uploadimagesUl">
+                    <li *ngFor="let images of imagesList;let i=index;" ><img [src]="images"><br><span><a (click)="deleteImg(i)"><i nz-icon nzType="delete" nzTheme="outline"></i></a></span></li>
+                </ul>
+            </ng-template>
+        </div>
+        <div nz-col *ngFor="let track of trackArray;let i=index;" class="trackDiv">
+                <div class="trackhead">
+                    <a><img [src]="track.trackinfo.userheadimg" [routerLink]="['/userinfo',track.trackinfo.userid]" ></a>
+                    <ul class="trackuser">
+                        <li [title]="track.trackinfo.username" [routerLink]="['/userinfo',track.trackinfo.userid]"><a>{{track.trackinfo.username}}</a></li>
+                        <li>{{track.trackinfo.date | date:'yyyy-MM-dd HH:mm:ss'}}</li>
+                    </ul>
+                    <button nz-button nzSize="small" class="followsBtn" *ngIf="track.trackinfo.isfans=='false'&&track.trackinfo.userid!=userinfo.userid" (click)="follwe(i)"><i nz-icon nzType="plus" nzTheme="outline"></i>关注</button>
+                    <button nz-button nzSize="small" class="followsBtn" *ngIf="track.trackinfo.isfans=='true'&&track.trackinfo.userid!=userinfo.userid" (click)="cancalfollwe(i)"><i nz-icon nzType="check" nzTheme="outline"></i>已关注</button>
+                </div>
+                <div class="tracktextContent">{{track.trackinfo.textcontent}}</div>
+                <!-- <div class="trackMusicContent" >
+                    <div>
+                            <a><img src="../../../assets//images/154721743547.jpg"></a>
+                            <ul>
+                                <li title="倩影流年"><a>倩影流年</a></li>
+                                <li title="双笙&慕寒">双笙&慕寒</li>
+                            </ul>
+                    </div>
+                </div> -->
+                <div class="trackImgContent">
+                    <ul>
+                        <li *ngIf="track.trackinfo.imgcontent1" ><img [src]="track.trackinfo.imgcontent1"></li>
+                        <li *ngIf="track.trackinfo.imgcontent2" ><img [src]="track.trackinfo.imgcontent2"></li>
+                        <li *ngIf="track.trackinfo.imgcontent3" ><img [src]="track.trackinfo.imgcontent3"></li>
+                    </ul>
+                </div>
+                <div class="trackContentFooter">
+                    <ul>
+                        <li><a (click)="liketrack(i)" ><i nz-icon nzType="like" [theme]="track.isfabulous? 'twotone' : 'outline'"></i>({{track.trackinfo.fabulous}})</a></li>
+                        <li><a (click)="showcomment(i)"><i nz-icon nzType="message" nzTheme="outline"></i>评论</a></li>
+
+                    </ul>    
+                </div>
+                <div class="trackcommentDiv" *ngIf="trackArray[i].commentWindowStatus" >
+                    <div>
+                         <app-comments [id]="track.trackinfo.trackid" [commenttype]="'track'"></app-comments>
+                    </div>      
+                </div>
+                <nz-divider></nz-divider>
+            </div>
+            <div nz-col class="trackFooter">
+               <a (click)="load()" *ngIf="!loadstatus" >加载更多</a>
+               <a *ngIf="loadstatus" ><i nz-icon nzType="loading" nzTheme="outline"></i> 加载中</a>
+            </div>
+            
+    </div>
+      
+  </div>
+  <div nz-col nzSpan="4">
+    <!-- <ul class="uploadimagesUl">
+        <li><img src="../../../assets/images/1547217487442.jpg"></li>
+        <li><img src="../../../assets/images/15472174947578.jpg"></li>
+        <li><img src="../../../assets/images/1547217398303.jpg"></li>
+    </ul> -->
+  </div>
+</div>

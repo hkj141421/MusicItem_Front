@@ -1,0 +1,86 @@
+<div nz-row nzType="flex" style="margin-top: 20px;">
+  <div nz-col nzSpan="12" nzPush="3" class="infofirstcol">
+      <form nz-form [formGroup]="personInfo">
+          <nz-form-item  nzFlex>
+              <nz-form-label nzFor="name">昵称</nz-form-label>
+              <nz-form-control nzSpan="18">
+                  <nz-input-group [nzSuffix]="suffixTemplate"   >
+                      <input type="text" nz-input  formControlName="name" name="name" readonly="readonly"/>
+                    </nz-input-group>
+                    <ng-template #prefixTemplate><i nz-icon type="user"></i></ng-template>
+              </nz-form-control>
+          </nz-form-item>
+          <nz-form-item  nzFlex>
+              <nz-form-label nzFor="sex">性别</nz-form-label>
+              <nz-form-control nzSpan="18">
+                <nz-radio-group nzName="sex" formControlName="sex">
+                  <label nz-radio nzValue="男">男</label>
+                  <label nz-radio nzValue="女">女</label>
+                  <label nz-radio nzValue="保密">保密</label>
+                </nz-radio-group>
+              </nz-form-control>
+          </nz-form-item>
+          <nz-form-item  nzFlex>
+            <nz-form-label nzFor="birth">生日</nz-form-label>
+              <nz-form-control nzSpan="18">
+                <nz-date-picker formControlName="birth" name="birth"></nz-date-picker>
+              </nz-form-control>
+          </nz-form-item>
+          <nz-form-item  nzFlex >
+              <nz-form-label nzFor="location">地区</nz-form-label>
+              <nz-form-control formGroupName="location" nzSpan="18">
+                <nz-select formControlName="province" name="province" (ngModelChange)="loadCity()">
+                  <nz-option [nzValue]="province" *ngFor="let province of provinceArray" [nzLabel]="province"></nz-option>
+                </nz-select>
+                <nz-select formControlName="city" name="city">
+                    <nz-option [nzValue]="city" *ngFor="let city of cityArray" [nzLabel]="city"></nz-option>
+                </nz-select>
+              </nz-form-control>
+          </nz-form-item>
+          <nz-form-item  nzFlex>
+              <nz-form-label nzFor="introduce">简介</nz-form-label>
+              <nz-form-control nzSpan="18">
+                <textarea nz-input rows="8"  formControlName="introduce"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item  nzFlex>
+                <nz-form-label nzFor="MusicPreference">喜好</nz-form-label>
+                <div class="preferenceDiv">
+                    <ul class="preferenceUl">
+                        <li *ngFor="let preference of preferenceArray;let i=index"><nz-tag nzMode="closeable" [nzColor]="preference.color" (nzOnClose)="deletetag(i)">{{preference.name}}</nz-tag> </li>
+                        <li *ngIf="preferenceArray.length==0"><nz-form-text style="color:#d9d9d9">选择以下标签，定制你的音乐偏好，让歌曲推荐更精确</nz-form-text></li>
+                      </ul>
+                </div>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="t" style="float: left;">标签</nz-form-label>
+                <nz-form-control nzSpan="18" name="t">
+                    <div>
+                        <nz-tag [nzColor]="tag.color" nnzMode="checkable" *ngFor="let tag of tags;let i=index" (click)="addOrDeletetag(i)">{{tag.name}}</nz-tag>
+                    </div>
+                </nz-form-control>
+              
+            </nz-form-item>
+            <nz-form-item>
+                <button nz-button nzType="primary" (click)="save()" style="margin-left: 250px;">保存修改</button>
+            </nz-form-item>
+        </form>
+  </div>
+  <div nz-col nzSpan="4" nzPush="3" class="infosecondcol">
+      
+    <div style="margin-top: 40px;margin-bottom: 10px;margin-left: 10px;">
+      <img [src]="userinfo.userheadimg?userinfo.userheadimg:'../../../assets/images/userImg.jpg'" width="150px" height="150px"  >
+    </div>
+    <div style="margin-bottom: 10px;">
+      <span style="font-size: 12px;">支持 jpg \ png \ gif 格式,</span>
+      <span style="font-size: 12px;">建议尺寸大于100＊100，文件小于10M</span>
+    </div>
+    <nz-upload nzListType="picture" 
+      [nzShowUploadList]="true" 
+       [nzLimit]="1" 
+     [nzWithCredentials]="true" [(nzFileList)]="Headimage" nzListType="text"
+      [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)" nzAccept="image/*" style="margin-left: 40px;"> 
+     <button nz-button><span>更改头像</span></button>
+     </nz-upload>
+  </div>
+</div>

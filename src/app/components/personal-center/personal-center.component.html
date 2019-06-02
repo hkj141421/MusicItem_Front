@@ -1,0 +1,10 @@
+<nz-tabset nzAnimated="false" [nzTabBarStyle]="{'width':'290'}" class="centerDiv">
+  <nz-tab [nzTitle]="infotitle">
+    <ng-template #infotitle><i nz-icon nzType="setting" nzTheme="outline"></i>个人信息设置</ng-template>
+    <app-personal-info></app-personal-info>
+  </nz-tab>
+  <nz-tab [nzTitle]="accounttitle">
+      <ng-template #accounttitle><i nz-icon nzType="setting" nzTheme="outline"></i>个人账户设置</ng-template>
+    <app-personal-account></app-personal-account>
+  </nz-tab>
+</nz-tabset>

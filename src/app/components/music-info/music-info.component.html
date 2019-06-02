@@ -1,0 +1,35 @@
+<div nz-row class="firstRow">
+  <div nz-col nzSpan="4" style="    margin-left: 40px;">
+    <div class="coverPicture">
+      <img [src]="musicInfo?musicInfo.musicimg:''" width="200px" height="200px" class="coverImage">
+    </div>
+  </div>
+  <div nz-col nzSpan="12" >
+    <ul>
+      <li class="musicnameli" *ngIf="musicInfo" [title]="musicInfo.musicname">{{musicInfo.musicname}}</li>
+      <li class="singerli" *ngIf="musicInfo" [title]="musicInfo.singer"><a>{{musicInfo.singer}}</a></li>
+      <li *ngIf="musicInfo" [title]="musicInfo.album">专辑:{{musicInfo.album}}</li>
+    </ul>
+    <ul class="musicbtn">
+      <li><button nz-button nzSize="large" class="btn" (click)="play()"><i nz-icon nzType="play-circle" nzTheme="outline" ></i>播放</button></li>
+      <li><button nz-button nzSize="large" class="btn" (click)="addToSheet(musicInfo.musicid)"><i nz-icon nzType="heart" nzTheme="outline" ></i>收藏</button></li>
+      <!-- <li><button nz-button nzSize="large" class="btn"><i nz-icon nzType="share-alt" nzTheme="outline"></i>分享</button></li> -->
+    </ul>
+  </div>
+  <div nz-col nzSpan="6" ></div>
+</div>
+<div nz-row class="secondRow">
+  <div nz-col nzSpan="5" nzPush="2" class="lrcCol">
+    <span>歌词：</span>
+    <div class="lrc" style="    min-height: 300px;margin-bottom: 20px;">
+        <p *ngFor="let text of lrcArray">{{text}}</p>
+        <p *ngIf="lrcArray" >暂无歌词</p>
+    </div>
+    <!-- <a (click)="showlrc()" *ngIf="lrcheight=='300px';else templateName">展开<i nz-icon nzType="down" nzTheme="outline"></i></a>
+    <a (click)="closelrc()" *ngIf="lrcheight!='300px';else templateName">收起<i nz-icon nzType="up" nzTheme="outline"></i></a> -->
+  </div>
+  <div nz-col nzSpan="15" nzPush="2" *ngIf="musicInfo" class="commentCol">
+        
+    <app-comments [id]='musicInfo.musicid' commenttype="music" ></app-comments>
+</div>
+</div>

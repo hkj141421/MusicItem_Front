@@ -1,0 +1,23 @@
+<div nz-row>
+  <div nz-col>
+    <nz-list [nzDataSource]="result" [nzRenderItem]="item" class="userUl" nzNoResult="">
+      <ng-template #item let-i>
+        <nz-list-item [routerLink]="['/userinfo',i.userid]">
+          <nz-list-item-meta
+            [nzTitle]="itemTitle"
+            [nzAvatar]="i.userheadimg"
+            [nzDescription]="description">
+            <ng-template #itemTitle>
+              <a>{{i.username}}</a>
+            </ng-template>
+            <ng-template #description>
+                <a class="desc">签名:&nbsp;&nbsp;{{i.signature}}</a>
+              </ng-template>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+    <nz-empty nzNotFoundContent="很抱歉，未能找到相关搜索结果！" *ngIf="!result||result.length==0" ></nz-empty>
+    <nz-pagination [(nzPageIndex)]="pagenumber" [nzTotal]="total" [(nzPageSize)]="pagesize" nzHideOnSinglePage="true" (nzPageIndexChange)="IndexChange()" class="page"></nz-pagination>
+  </div>
+</div>

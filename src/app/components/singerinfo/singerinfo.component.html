@@ -1,0 +1,52 @@
+<div nz-row class="bgRow">
+    <div nz-col>
+            <div nz-row class="bannerRow">
+                <div nz-col class="star-banner-wp" style.background-image="url({{singer.singerimg}})">
+                    <div class="filter-banner"></div>
+                </div>
+            </div>
+            <img [src]="singer.singerimg" class="userimg">
+            <div nz-row class="BodyRow">
+                <div nz-col class="userInfoCol" nzSpan="16" nzPush="4">
+                    <span class="username" [title]="singer.singername">{{singer.singername}}</span>
+                </div>
+            </div>
+    </div>
+</div>
+<div nz-row class="bgRow">
+    <div nz-col nzSpan="16" nzPush="4" style="margin-top: 5px;">
+        <span style="font-size: 15px;font-weight: 700;">{{singer?singer.singername:'未知'}}简介:</span><br><br>
+        {{singer?singer.briefdesc:'未知'}}
+    </div>
+</div>
+<div nz-row class="bgRow">
+    <div nz-col nzSpan="16" nzPush="4" tyle="    margin-top: 10px;"> 
+        <nz-tabset>
+            <nz-tab [nzTitle]="singertitle">
+                    <ul class="albumUl">
+                        <li *ngFor="let Album of AlbumArray">
+                        <a>
+                                <div class="Abgimg">
+                                <div class="newimgdiv">
+                                    <a>
+                                    <img src='{{Album.musicimg}}'>
+                                    </a>
+                                </div>
+                                <a class="coverimg2"></a>
+                                <a class="playbtn">
+                                    <i nz-icon type="play-circle" theme="outline" title="播放"></i>
+                                </a>
+                                </div>
+                                <!-- <a class="newSinger" [title]="i.singer">{{i.singer}}</a> -->
+                                <a class="newmusicName" [title]="Album.album">{{Album.album}}</a>
+                        </a>
+                        </li>                
+                    </ul>
+                    <nz-empty nzNotFoundContent="暂未收录该歌手的专辑" *ngIf="(!AlbumArray)||AlbumArray.length==0" ></nz-empty>
+            </nz-tab>
+        </nz-tabset>
+        <ng-template #singertitle>
+            <span style="color:#666">TA的专辑</span>
+        </ng-template>
+    </div>
+</div>

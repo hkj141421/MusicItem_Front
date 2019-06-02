@@ -1,0 +1,71 @@
+<div nz-row>
+    <div nz-col nzSpan="20" nzPush="2">
+        <ul class="amount">
+            <li *ngFor="let item of data">
+                <div><img [src]="item.prex"></div>
+                <ul class="amountText">
+                  <li><span style="font-weight: 700;">{{item.title}}</span></li>
+                  <li><span>{{item.value}}</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div nz-row style="margin-top: 30px">
+  <div nz-col nzSpan="12" nzPush="2" class="newuserCol">
+    <span class="newuser">当前最热歌曲</span>
+      <div class="Songlist">
+          <nz-list [nzHeader]="Songlistheader"   >
+            <nz-list-item *ngFor="let item of SongArray;let i=index" >
+
+              <div class="songline">
+                  <div class="songlinename">
+                    <div>
+                        <span><a [title]="item.musicname" [routerLink]="['/music',item.musicid]" routerLinkActive="router-link-active" >{{item.musicname}}</a></span>
+                    </div>
+                    
+                    <div class="songlinebtn">
+                        <a><i nz-icon type="play-circle" theme="outline" (click)="play(i)"></i></a>
+                        <a class="fa fa-download" aria-hidden="true"  [href]="item.musicaddress"></a>
+                    </div>
+                  </div>
+                  <div class="songlinesinger">
+                     <a [title]="item.singer">{{item.singer}}</a> 
+                  </div>
+                  <div class="songlinealbum">
+                     <a [title]="item.album">{{item.album}}</a> 
+                     <a *ngIf="item.album==''||item.album==null" >无</a> 
+                  </div>
+                  <div class="songlinetime">
+                     <a>{{item.time}}</a> 
+                  </div>
+              </div>
+            </nz-list-item>
+          </nz-list>      
+          <ng-template #Songlistheader>
+              <ul class="Songlistheader">
+                <li>歌曲</li>
+                <li>歌手</li>
+                <li>专辑</li>
+                <li>时长</li>
+              </ul>
+          </ng-template>
+      </div>
+  </div>
+  <div nz-col nzSpan="6" nzPush="3" class="newuserCol">
+    <span class="newuser">最新用户</span>
+    <nz-card>
+        <nz-timeline>
+            <nz-timeline-item *ngFor="let item of userArray">
+              <nz-card nzHoverable="true" class="usercard">
+                  <div><img [src]="item.userheadimg"></div>
+                  <ul class="cardtext">
+                    <li><span style="font-weight: 700;">{{item.username}}</span></li>
+                    <li><span>{{item.registertime | date:'yyyy-MM-dd'}}</span></li>
+                  </ul>
+              </nz-card>
+            </nz-timeline-item>
+          </nz-timeline>
+    </nz-card>
+  </div>
+</div>

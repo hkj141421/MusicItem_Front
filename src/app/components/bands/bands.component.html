@@ -1,0 +1,162 @@
+<div nz-row class="bandsRow">
+  <div nz-col nzSpan="4" nzPush="2" style="margin-right: 2%;">
+      <div nz-row>
+        <div nz-col class="userCol">
+            <nz-list [nzDataSource]="RecomUser" [nzRenderItem]="item" nzNoResult="" [nzHeader]="userhead" [nzFooter]="changeUser">
+                <ng-template #item let-i>
+                  <nz-list-item [routerLink]="['/userinfo',i.userid]">
+                    <nz-list-item-meta
+                      [nzTitle]="itemTitle"
+                      [nzAvatar]="i.userheadimg"
+                      [nzDescription]="description">
+                      <ng-template #itemTitle>
+                        <a>{{i.username}}</a>
+                      </ng-template>
+                      <ng-template #description>
+                          <a class="desc">签名:&nbsp;&nbsp;{{i.signature}}</a>
+                      </ng-template>
+
+                    </nz-list-item-meta>
+                  </nz-list-item>
+                </ng-template>
+              </nz-list>
+              <ng-template #changeUser>
+                  <button nz-button class="changeBtn" (click)="getRecomUser()">换一组</button>
+              </ng-template>
+              <ng-template #userhead>
+                    <div style="padding-left: 5%;"><a style="font-size: 16px;color: #666;">推荐用户</a></div>
+              </ng-template>
+        </div>
+        <div nz-col></div>
+      </div>
+  </div>
+  <div nz-col nzSpan="16" nzPush="2" class="bandRightRow">
+      <div nz-row class="bandrow">
+        <div nz-col>
+            <a class="bandtitle" [routerLink]="['/bandinfo','chinese']"><i nz-icon nzType="fund" nzTheme="outline"></i>华语榜</a>
+            <div nz-row>
+              <div nz-col nzSpan="6" *ngIf="ChineseBandfirst" class="first">
+                <a [routerLink]="['/bandinfo','chinese']">
+                  <nz-card [nzCover]="coverMusicImg">
+                    <nz-card-meta [nzTitle]="ChineseBandfirst.musicname" [nzDescription]="ChineseBandfirst.singer"></nz-card-meta>
+                  </nz-card>
+                </a>
+                  <ng-template #coverMusicImg>
+                      <img [src]="ChineseBandfirst.musicimg" [alt]="ChineseBandfirst.musicname">
+                </ng-template>
+              </div>
+              <div nz-col nzSpan="18" nzPush="1" class="banditem">
+                  <nz-list [nzGrid]="{ gutter: 24, span: 12 }" [nzRenderItem]="cb" [nzDataSource]="ChineseBand">
+                      <ng-template #cb let-cb>
+                          <nz-list-item [nzContent]="nzContent" [routerLink]="['/music',cb.musicid]">
+                            <ng-template #nzContent>
+                              <a > 
+                                  <img [src]="cb.musicimg" class="Bandimg"><span class="musicSpan">{{cb.musicname}}</span><span class="singerSpan">{{cb.singer}}</span>
+                              </a>
+                                <!-- <nz-list-item-meta [nzAvatar]="cb.musicimg" [nzTitle]="cb.musicname" [nzDescription]="cb.singer"></nz-list-item-meta> -->
+                            </ng-template>
+                          </nz-list-item>
+                        </ng-template>
+                  </nz-list>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div nz-row class="bandrow">
+          <div nz-col>
+              <a class="bandtitle" [routerLink]="['/bandinfo','english']"><i nz-icon nzType="fund" nzTheme="outline"></i>英文榜</a>
+              <div nz-row>
+                <div nz-col nzSpan="6" *ngIf="EnglishBandfirst" class="first">
+                  <a [routerLink]="['/bandinfo','english']">
+                    <nz-card [nzCover]="EnglishMusicImg">
+                      <nz-card-meta [nzTitle]="EnglishBandfirst.musicname" [nzDescription]="EnglishBandfirst.singer"></nz-card-meta>
+                    </nz-card>
+                  </a>
+                    <ng-template #EnglishMusicImg>
+                        <img [src]="EnglishBandfirst.musicimg" [alt]="EnglishBandfirst.musicname">
+                  </ng-template>
+                </div>
+                <div nz-col nzSpan="18" nzPush="1" class="banditem">
+                    <nz-list [nzGrid]="{ gutter: 24, span: 12 }" [nzRenderItem]="English" [nzDataSource]="EnglishBand">
+                        <ng-template #English let-English>
+                            <nz-list-item [nzContent]="EnglishContent" [routerLink]="['/music',English.musicid]">
+                              <ng-template #EnglishContent>
+                                <a > 
+                                    <img [src]="English.musicimg" class="Bandimg"><span class="musicSpan">{{English.musicname}}</span><span class="singerSpan">{{English.singer}}</span>
+                                </a>
+                                  <!-- <nz-list-item-meta [nzAvatar]="cb.musicimg" [nzTitle]="cb.musicname" [nzDescription]="cb.singer"></nz-list-item-meta> -->
+                              </ng-template>
+                            </nz-list-item>
+                          </ng-template>
+                    </nz-list>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div nz-row class="bandrow">
+            <div nz-col>
+                <a class="bandtitle" [routerLink]="['/bandinfo','newmusic']"><i nz-icon nzType="fund" nzTheme="outline"></i>新歌榜</a>
+                <div nz-row>
+                  <div nz-col nzSpan="6" *ngIf="NewMusicBandfirst" class="first">
+                    <a [routerLink]="['/bandinfo','newmusic']">
+                      <nz-card [nzCover]="New">
+                        <nz-card-meta [nzTitle]="NewMusicBandfirst.musicname" [nzDescription]="NewMusicBandfirst.singer"></nz-card-meta>
+                      </nz-card>
+                    </a>
+                      <ng-template #New>
+                          <img [src]="NewMusicBandfirst.musicimg" [alt]="NewMusicBandfirst.musicname">
+                    </ng-template>
+                  </div>
+                  <div nz-col nzSpan="18" nzPush="1" class="banditem">
+                      <nz-list [nzGrid]="{ gutter: 24, span: 12 }" [nzRenderItem]="New" [nzDataSource]="NewMusicBand">
+                          <ng-template #New let-New>
+                              <nz-list-item [nzContent]="NewContent" [routerLink]="['/music',New.musicid]">
+                                <ng-template #NewContent>
+                                  <a > 
+                                      <img [src]="New.musicimg" class="Bandimg"><span class="musicSpan">{{New.musicname}}</span><span class="singerSpan">{{New.singer}}</span>
+                                  </a>
+                                    <!-- <nz-list-item-meta [nzAvatar]="cb.musicimg" [nzTitle]="cb.musicname" [nzDescription]="cb.singer"></nz-list-item-meta> -->
+                                </ng-template>
+                              </nz-list-item>
+                            </ng-template>
+                      </nz-list>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div nz-row class="bandrow">
+              <div nz-col>
+                  <a class="bandtitle" [routerLink]="['/bandinfo','global']"><i nz-icon nzType="fund" nzTheme="outline"></i>全球榜</a>
+                  <div nz-row>
+                    <div nz-col nzSpan="6" *ngIf="GlobalBandfirst" class="first">
+                      <a [routerLink]="['/bandinfo','global']">
+                        <nz-card [nzCover]="GlobalMusicImg">
+                          <nz-card-meta [nzTitle]="GlobalBandfirst.musicname" [nzDescription]="GlobalBandfirst.singer"></nz-card-meta>
+                        </nz-card>
+                      </a>
+                        <ng-template #GlobalMusicImg>
+                            <img [src]="GlobalBandfirst.musicimg" [alt]="GlobalBandfirst.musicname">
+                      </ng-template>
+                    </div>
+                    <div nz-col nzSpan="18" nzPush="1" class="banditem">
+                        <nz-list [nzGrid]="{ gutter: 24, span: 12 }" [nzRenderItem]="Global" [nzDataSource]="GlobalBand">
+                            <ng-template #Global let-Global>
+                                <nz-list-item [nzContent]="GlobalContent" [routerLink]="['/music',Global.musicid]">
+                                  <ng-template #GlobalContent>
+                                    <a > 
+                                        <img [src]="Global.musicimg" class="Bandimg"><span class="musicSpan">{{Global.musicname}}</span><span class="singerSpan">{{Global.singer}}</span>
+                                    </a>
+                                      <!-- <nz-list-item-meta [nzAvatar]="cb.musicimg" [nzTitle]="cb.musicname" [nzDescription]="cb.singer"></nz-list-item-meta> -->
+                                  </ng-template>
+                                </nz-list-item>
+                              </ng-template>
+                        </nz-list>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  </div>
+</div>

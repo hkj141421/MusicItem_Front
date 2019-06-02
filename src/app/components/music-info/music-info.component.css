@@ -1,0 +1,91 @@
+.firstRow{
+    margin-top: 40px;
+    height: 250px;
+    padding-top: 20px;
+    width: 1145px;
+    margin-left: 113px;
+    background-color: white;
+}
+.secondRow{
+    margin-top: 30px;
+}
+.secondRow div span{
+    margin-bottom: 20px;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    /* text-align: center; */
+}
+.secondRow div a{
+    /* text-align: center; */
+    display: block;
+    width: 100%;
+}
+.secondRow p{
+    margin-bottom: 5px;
+}
+.coverPicture{
+    background: url(../../../assets/images/coverall.png) no-repeat;
+    background-position: 0 -1285px;
+    width: 208px;
+    height: 208px;
+    top: -4px;
+    left: -4px;
+}
+.coverImage{
+    margin-left: 4px;
+    margin-top: 4px;
+}
+ul{
+    list-style: none;
+}
+.musicbtn{
+    margin-top: 40px;
+}
+.musicbtn li{
+    float: left;
+    margin-right: 10px;
+}
+.musicnameli{
+    font-size: 30px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.singerli{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+.singerli a{
+    color: black;
+}
+.musicbtn ::ng-deep .ant-btn-lg{
+    width: 100px;
+}
+.lrc{
+    /* overflow: hidden; */
+    /* text-align: center; */
+}
+.btn{
+    color: white;
+    background-color: #C20C0C;
+}
+.btn:hover{
+    border: 1px solid #C20C0C;
+}
+.lrcCol{
+    background-color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.commentCol{
+    background-color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+    
+}

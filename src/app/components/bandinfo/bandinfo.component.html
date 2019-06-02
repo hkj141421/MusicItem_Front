@@ -1,0 +1,72 @@
+<div nz-row style="    margin-top: 20px;">
+    <div nz-col nzSpan="5" class="sheetfirstCol" nzPush="1">
+      <div class="SheetImgdiv">
+        <a class="Abgimg">
+          <img [src]="currentbandinfo?currentbandinfo.coverimg:''" width="170px" height="170px">
+          <a class="coverpicture"></a>
+          <div class="imgbg"></div>
+        </a>
+        </div>
+        <div class="sheetIntroText">
+            <span>榜单介绍:</span>
+            <div>{{currentbandinfo?currentbandinfo.introduce:'暂无介绍'}}</div>
+        </div>
+    </div>
+    <div nz-col nzSpan="17" nzPush="1" class="sheetseCol">
+      <div>
+        <div class="one">
+              <a class="sheetuser"><span>{{currentbandinfo?currentbandinfo.name:'未知榜单'}}</span></a>
+        </div>
+          <!-- <ul class="btnul">
+            <li>
+              
+            </li>
+          </ul> -->
+          <div class="Songlist">
+              <nz-list [nzHeader]="Songlistheader">
+                <nz-list-item *ngFor="let item of SongArray;let i=index" >
+  
+                  <div class="songline">
+                      <div class="songlinenum"><a>{{i+(pagesize*(pagenumber-1))+1}}</a></div>
+                      <div class="songlinename">
+                        <div>
+                            <span><a [title]="item.musicname" [routerLink]="['/music',item.musicid]" routerLinkActive="router-link-active" >{{item.musicname}}</a></span>
+                        </div>
+                        
+                        <div class="songlinebtn">
+                            <a><i nz-icon type="play-circle" theme="outline" (click)="play(i)"></i></a>
+                            <a><i nz-icon type="folder-add" theme="outline" (click)="collectSheet(item.musicid)"></i></a>
+                            <a class="fa fa-download" aria-hidden="true"  [href]="item.musicaddress"></a>
+                        </div>
+                      </div>
+                      <div class="songlinesinger">
+                         <a [title]="item.singer">{{item.singer}}</a> 
+                      </div>
+                      <div class="songlinealbum">
+                         <a [title]="item.album">{{item.album}}</a> 
+                         <a *ngIf="item.album==''||item.album==null" >无</a> 
+                      </div>
+                      <div class="songlinetime">
+                         <a>{{item.time}}</a> 
+                      </div>
+                  </div>
+                </nz-list-item>
+              </nz-list>
+              <nz-empty nzNotFoundContent="该歌单还没有收录歌曲" class="empty" *ngIf="!SongArray||SongArray.length==0"></nz-empty>
+              <nz-pagination [(nzPageIndex)]="pagenumber" [nzPageSize]="pagesize" (nzPageIndexChange)="IndexChange()" [nzTotal]="100" class="page"  nzHideOnSinglePage="true"></nz-pagination>
+              <a id="comment"></a>
+            
+              <ng-template #Songlistheader>
+                  <ul class="Songlistheader">
+                    <li><button nz-button (click)="playAll()" class="playAllBtn">全部播放</button></li>
+                    <li>歌曲</li>
+                    <li>歌手</li>
+                    <li>专辑</li>
+                    <li>时长</li>
+                  </ul>
+              </ng-template>
+          </div>
+      </div>
+    </div>
+  </div>
+  

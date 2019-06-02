@@ -1,0 +1,152 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+      <div class="Audio1" #Audio [ngStyle]="{'height': (ViewUpDownFlag||SongListflag||lockflag)?'60px':'6px'}" (mouseover)="ControlAudioView()" (mouseout)="ControlAudioView()">
+        
+          <div class="Audio_Play">
+            <div class="Audio_Btnlist">
+              <ul>
+                  <!-- class="Up_Btn" -->
+                <li style="font-size:35px;"><div  (click)="backSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></div></li>
+                <li>
+                    <!-- class="Play_Btn" -->
+                  <div  (click)="Play()" #playControllerbtn><i class="fa" [ngClass]="playflag==1?'fa-pause-circle-o':'fa-play-circle-o'"  aria-hidden="true" style="font-size: 50px;"></i></div>
+                </li>
+                <!-- <i class="fa fa-pause-circle-o" aria-hidden="true"></i> -->
+                <!-- class="Down_Btn" -->
+                <li style="font-size: 35px;"><div (click)="nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></div></li>
+              </ul>
+            </div>
+            <div class="Audio_Songimg">
+            <ng-container *ngIf="CurrentSongInfo!=null">
+              <img src="{{CurrentSongInfo.musicimg}}" width="35px" height="35px">
+            </ng-container>
+            <ng-container *ngIf="CurrentSongInfo==null">
+                <img src="" width="35px" height="35px">
+              </ng-container>
+            </div>
+            <div class="Audio_Songinfo">
+              <ng-container *ngIf="CurrentSongInfo!=null">
+                   <span id="Songname">{{CurrentSongInfo.musicname}}</span>
+                   <span id="Songsinger">{{CurrentSongInfo.singer}}</span>
+              </ng-container>
+              <ng-container *ngIf="CurrentSongInfo==null">
+                  <span id="Songname">未知</span>
+                  <span id="Songsinger">未知</span>
+             </ng-container>
+                  </div>
+            <div #Audio_Progressbar class="Audio_Progressbar" >
+              <div #Bar class="Bar"></div>
+              <div #Progress_Btn class="Progress_Btn" (mousedown)="Controllersong($event)"></div>
+            </div>
+            <div class="Audio_Time">
+                <ng-container *ngIf="CurrentSongInfo!=null">
+                    <span>{{SongCurrentTime}}</span>/<span>{{CurrentSongInfo.time}}</span>
+                </ng-container>
+                <ng-container *ngIf="CurrentSongInfo==null">
+                    <span>00:00</span>/<span>00:00</span>
+                </ng-container>
+            </div>
+            <div class="Audio_Collectbtn">
+              <i class="fa fa-plus" aria-hidden="true" (click)="collectcurrentSong()"></i>
+            </div>
+            <div  class="Audio_Volumediv" [ngStyle]="{'visibility': Volumeflag?'visible':'hidden'}" #Audio_Volumediv >
+              <div class="Audio_VolumeBar" #Audio_VolumeBar>
+                <div class="Volume_Bar" #Volume_Bar style="height:97px"></div>
+              </div>
+              <div class="Volume_Btn" (mousedown)="ControllerVolume($event)" #Volume_Btn style="top: -88px;"></div>
+            </div>
+            
+            <div  class="Audio_Volumebtn"  #Audio_Volumebtn>
+                <i class="fa fa-signal" aria-hidden="true" (click)="ShowVolumediv()"></i>
+              </div>
+            <div class="Audio_Sequence" #sequence (click)="ChangeSequence()">
+                <i class="fa" aria-hidden="true" [ngClass]="{'fa-exchange':sequenceflag==1,'fa-retweet':sequenceflag==2,'fa-random':sequenceflag==3}" ></i>
+            </div>
+            <div class="Audio_Songlistbtn" (click)="ShowSongList()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+          <div class="line"></div>
+            <div class="Lock" >
+                <i class="fa " aria-hidden="true" #lock (click)="LOCK()" [ngClass]="lockflag?'fa-lock':'fa-unlock'" ></i>
+            </div>
+       </div>
+       <div class="Audio_Songlist" [ngStyle]="{'visibility': SongListflag?'visible':'hidden'}">
+         <div class="listheadbg">
+           
+         </div>
+          <div class="Songlistbg">
+            
+          </div>
+          <div class="Songlyicbg"></div>
+          <div class="Audio_listHead">
+            <span class="playcount">播放列表({{SongArray.length}})</span>
+         
+              <a class="clear"  #lo (click)="clearList()">清除</a>
+
+            <div class="Lycdiv">
+                <ng-container *ngIf="CurrentSongInfo!=null">
+                    <a class="songname" href="#">{{CurrentSongInfo.musicname}}</a>
+                </ng-container>
+                <ng-container *ngIf="CurrentSongInfo==null">
+                    <a class="songname" href="#">未知</a>
+                </ng-container>
+                <i class="fa fa-window-close" aria-hidden="true" (click)="closeSonglist()"></i>
+                <!-- <div class="closelist" ></div>
+                <div  class="closediv"></div> -->
+            </div>
+            
+           </div>
+           <div class="Songlist">
+            <table class="SongTable" >
+                <ng-container *ngFor="let item of SongArray; let j=index">
+              <tr  id="{{j}}" *ngIf="SongArray[j]!=null" class="SonglistTr" #songtr>
+                <td><a href="" class="itemName">{{item.musicname}}</a></td>
+                <td>
+                  <ul class="btnUl">
+                  <li class="Songlist_collectbtn">
+                      <i class="fa fa-folder collect" aria-hidden="true" (click)="collectSong(item.musicid)"></i>
+                  </li>
+                  <li class="Songlist_playbtn">
+                      <i class="fa fa-play" aria-hidden="true" (click)="Addplay($event)"></i>
+                  </li>
+                  
+                  <li class="Songlist_downloadbtn">
+                      <!-- <a > -->
+                      <a class="fa fa-download" aria-hidden="true"  href="{{item.musicaddress}}" download="{{item.musicname}}"></a>
+            
+                  </li>
+                  <li class="Songlist_deletebtn">
+                      <i class="fa fa-trash-o fa-fw"  (click)="deleteSong($event)"></i>
+                  </li>
+                </ul>
+                </td>
+                <td>
+                  <a href="#" class="itemSinger">{{item.singer}}</a>
+                </td>
+                <td>
+                  <a href="#">{{item.time}}</a>
+                </td>
+              </tr>
+              </ng-container>
+              </table>
+            <div *ngIf="SongArray.length==0">
+               <ul class="nomusic">
+                 <li>你现在还没有添加任何歌曲</li>
+                 <li>快去首页寻找或搜索自己喜爱的音乐吧</li>
+               </ul>
+            </div>
+           </div>
+           <div class="Songlyic">
+            <ul #lrcView id="lrcView">
+              <li *ngFor="let lrcitem of Lrctext; let i=index" id="{{i}}" class="lrcline" #lrcLine>{{lrcitem}}</li>
+              <li *ngIf="(!Lrctext)||Lrctext.length==0"  class="lrcline" >暂无歌词</li>
+            </ul>
+           </div>
+        </div>
+    </div>
+
+  </body>
+</html>

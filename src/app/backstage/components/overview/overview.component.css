@@ -1,0 +1,151 @@
+.radius{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+ul{
+    list-style: none;
+}
+.amount{
+    margin-top: 20px;
+    padding: 0;
+}
+.amount::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+.amount>li{
+    float: left;
+    width: 20%;
+    padding: 20px;
+    margin-right: 5%;
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.amount>li:nth-last-child(){
+    margin-right: 0px;
+}
+.amount img{
+    width: 75px;
+    height: 75px;
+    float: left;
+    border-radius: 50%
+}
+.amountText{
+    margin-top: 15px;
+    margin-left: 45px;
+}
+.usercard img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 50%;
+}
+.cardtext{
+    margin-top: 5px;
+    margin-left: 25px;
+}
+.cardtext li{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.usercard ::ng-deep .ant-card-body{
+    padding-left: 15px;
+}
+.newuser{
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    /* margin-bottom: 20px; */
+    padding: 15px 28px;
+}
+.newuserCol{
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.Songlist ::ng-deep .ant-list-item:nth-child(even){
+    background-color: rgba(0,0,0,.01);
+}
+.songline{
+    width: 100%;
+}
+.songline div{
+    float: left;
+}
+.songline a{
+    color: black;
+}
+.songlinenum{
+    margin-left: 60px;
+    width: 50px;
+}
+.songlinename{
+    width: 39.5%;
+}
+.songlinename > div:nth-child(1){
+    width: 60%;
+    overflow: hidden;
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinebtn{
+    width: 35%;
+    margin-top: -10px;
+    position: relative;
+    top: 8px;
+    visibility: hidden;
+}
+.songlinebtn a{
+    font-size: 18px;
+    margin-right: 5px;
+    color: gray;
+}
+.songlinebtn a:hover{
+    color: rgb(205, 0, 0);
+}
+.ant-list-item:hover .songlinebtn{
+    visibility:visible;
+}
+.songlinesinger{
+    width: 23%;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinealbum{
+    width: 27%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+}
+.songlinetime a{
+    color: black;
+}
+.Songlistheader{
+    list-style: none;
+    padding: 0;
+    padding-left: 10px;
+}
+.Songlistheader li{
+    float: left;
+
+}
+
+.Songlistheader li:nth-child(1){
+    margin-right: 34%;
+}
+.Songlistheader li:nth-child(2){
+    margin-right: 19%;
+}
+.Songlistheader li:nth-child(3){
+    margin-right: 23%;
+}
+.Songlistheader::after{
+    content: " ";
+    display: block;
+    clear: both;
+}

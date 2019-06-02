@@ -1,0 +1,28 @@
+<nz-drawer [nzPlacement]="'right'" [nzWidth]="450" [nzTitle]="'创建歌单'" [nzVisible]="visible" (nzOnClose)="close()">
+    <form nz-form [formGroup]="SheetForm" nzLayout="horizontal">
+       <nz-form-item>
+           <nz-form-label nzRequired nzFor="sheetname">标题</nz-form-label>
+           <nz-form-control>
+               <input nz-input formControlName="sheetname" name="sheetname" placeholder="请输入标题">
+           </nz-form-control>
+       </nz-form-item>
+       <nz-form-item>
+           <nz-form-label nzRequired nzFor="tags">标签</nz-form-label>
+           <nz-form-control>
+               <input nz-input formControlName="tags" name="tags" placeholder="自定义标签，请用逗号分隔">
+           </nz-form-control>
+       </nz-form-item>
+       <div class="tags">
+          <nz-tag [nzColor]="tag.color" *ngFor="let tag of tags; let i=index" class="tag" nzMode="checkable" (nzCheckedChange)="checkTags(i)">{{tag.name}}</nz-tag>
+      </div>
+       <nz-form-item>
+           <nz-form-label nzRequired nzFor="introduction">简介</nz-form-label>
+           <textarea formControlName="introduction" name="introduction" [nzAutosize]="{ minRows: 4, maxRows: 8 }" nz-input></textarea>
+       </nz-form-item>
+       
+       <nz-form-item>
+           <button nz-button nzType="default" (click)="close()">放弃</button>
+           <button nz-button nzType="primary" (click)="createSheet()" [disabled]="!SheetForm.valid">提交</button>
+       </nz-form-item>
+    </form>  
+</nz-drawer>

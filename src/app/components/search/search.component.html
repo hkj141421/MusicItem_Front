@@ -1,0 +1,46 @@
+<div nz-row class="searchRow">
+  <!-- <div nz-col nzSpan="3" class="searchLeft" nzPush="2">
+    <ul class="searchtag">
+      <a><li [routerLink]="['./']" routerLinkActive="selectTag" >
+        <a >单曲</a>
+      </li></a>
+      <a><li [routerLink]="['./singer']" routerLinkActive="selectTag">
+        <a>歌手</a>
+      </li></a>
+      <a><li [routerLink]="['./sheet']" routerLinkActive="selectTag">
+        <a>歌单</a>
+      </li></a>
+      <a><li [routerLink]="['./user']" routerLinkActive="selectTag">
+        <a>用户</a>
+      </li></a>
+    </ul>
+  </div> -->
+  <ng-template #music>
+      <a class="searchtit">单曲</a>
+  </ng-template>
+  <ng-template #singer>
+      <a class="searchtit">歌手</a>
+  </ng-template>
+  <ng-template #sheet>
+      <a class="searchtit">歌单</a>
+  </ng-template>
+  <ng-template #user>
+      <a class="searchtit">用户</a>
+  </ng-template>
+  <div nz-col nzSpan="18" nzPush="3" class="searchright">
+    <nz-tabset nzTabPosition="left">
+        <nz-tab [nzTitle]="music" >
+            <app-musicresult [searchkey]='key'></app-musicresult> 
+        </nz-tab>
+        <nz-tab [nzTitle]="singer" >
+            <app-singerresult [searchkey]='key'></app-singerresult> 
+        </nz-tab>
+        <nz-tab [nzTitle]="sheet">
+            <app-sheetresult [searchkey]='key'></app-sheetresult>
+        </nz-tab>
+        <nz-tab [nzTitle]="user">
+            <app-userresult [searchkey]='key'></app-userresult>
+        </nz-tab>
+    </nz-tabset>
+  </div>
+</div>

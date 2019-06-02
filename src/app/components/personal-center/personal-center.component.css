@@ -1,0 +1,9 @@
+.centerDiv ::ng-deep .ant-tabs-bar {
+    width: 900px;
+    margin-left: 190px;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.centerDiv ::ng-deep .ant-tabs-nav{
+    margin-left: 265px;
+}

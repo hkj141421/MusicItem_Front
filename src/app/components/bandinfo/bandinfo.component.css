@@ -1,0 +1,195 @@
+.Abgimg{
+    position: relative;
+}
+.coverpicture{
+    width: 205px;
+    height: 172px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: -4px -986px;
+    z-index: 2;
+    position: absolute;
+    top: -75px;
+    left: 0px;
+}
+.sheetname{
+    display: block;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: black;
+    text-align: left;
+    font-weight: 700;
+    font-size: 25px;
+    margin-left: 55px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.SheetImgdiv{
+    margin-left: 40px;
+    width: 205px;
+    margin-top: 50px;
+}
+.sheetIntroText span{
+    margin-left: 40px;
+    margin-top: 20px;
+    display: block;
+}
+.sheetIntroText div{
+    width: 220px;
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.one{
+    margin-top: 40px;
+}
+.sheetuser img{
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;;
+}
+.sheetuser span{
+    font-weight: 700;
+    color: #c20c0c;
+    font-size: 24px;
+    margin-right: 10px;
+}  
+.sheetname {
+    margin-top: 10px;
+}
+.btnul{
+    list-style: none;
+    margin-top: 25px;
+}
+.btnul li{
+    float: left;
+    margin-right: 10px;
+    margin-left: 11px;
+   
+}
+.tagul{
+    list-style: none;
+    margin-left: 15px;
+    margin-top: 10px;
+    height: 25px;
+    width: 350px;
+}
+.tagul li{
+    float: left;
+}
+.Songlistheader{
+    list-style: none;
+}
+.Songlistheader li{
+    float: left;
+
+}
+.Songlistheader li:nth-child(1){
+    width: 50px;
+    margin-right: 20px;
+    text-align: center;
+}
+.Songlistheader li:nth-child(2){
+    margin-right: 350px;
+}
+.Songlistheader li:nth-child(3){
+    margin-right: 120px;
+}
+.Songlistheader li:nth-child(4){
+    margin-right: 150px;
+}
+.Songlist{
+    margin-top: 30px;
+}
+.songline div{
+    float: left;
+}
+.songline a{
+    color: black;
+}
+.songlinenum{
+    margin-left: 60px;
+    width: 50px;
+}
+.songlinename > div:nth-child(1){
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinebtn{
+    width: 198px;
+    margin-top: -16px;
+    position: relative;
+    top: 8px;
+    visibility:hidden;
+}
+.songlinebtn a{
+    font-size: 25px;
+    margin-right: 25px;
+    color: gray;
+}
+.songlinebtn a:hover{
+    color: rgb(205, 0, 0);
+}
+.songlinesinger{
+    width: 150px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinealbum{
+    width: 175px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+}
+.Songlist ::ng-deep .ant-list-item:nth-child(even){
+    background-color: rgba(0,0,0,.01);
+}
+.Songlist ::ng-deep .ant-list{
+    width: 900px;
+}
+.songlinetime a{
+    color: black;
+}
+.ant-list-item:hover .songlinebtn{
+    visibility:visible;
+}
+.page ::ng-deep .ant-pagination{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.sheetfirstCol{
+    min-height: 400px;
+    background-color: white;
+    margin-right: 20px;
+}
+.sheetseCol{
+    background-color: white;
+    padding-left: 20px;
+}
+.Songlist .empty{
+    margin-top: 20px;
+}
+.btnul::after{
+    content: " ";
+    clear: both;
+}
+.playAllBtn{
+    height: 20px;
+    padding: 0px 5px;
+    font-size: 10px;
+    background-color: #c20c0c;
+    color: white;
+    border: 0;
+}
+.playAllBtn:hover{
+    background-color: red;
+}

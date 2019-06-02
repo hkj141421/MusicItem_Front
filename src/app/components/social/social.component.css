@@ -1,0 +1,251 @@
+ul{
+    list-style: none;
+}
+.SocialuserValueList li{
+    float: left;
+    width: 55px;
+    text-align: center;
+}
+.Makeinfo:hover{
+    background-color: #f4f4f4;
+}
+.SocialTitleList {
+    position: relative;
+    left: -15px;
+}
+ul a{
+    color: black;
+}
+.SocialuserValueList{
+    position: relative;
+    left: -15px;
+}
+.SocialTitleList li{
+    float: left;
+    width: 55px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.SocialHeadImgDiv img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.SocialusernameSpan{
+    display: block;
+    text-align: center;
+    width: 200px;
+    margin-left: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.trackuserinfoDiv{
+    background-color: white;
+}
+.trackFirstRow{
+    margin-top: 20px;
+}
+.SocialUserInfoDiv{
+    height: 100px;
+}
+.Makeinfo{
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 16px;
+    background-color: white;
+    margin-top: 20px;
+}
+.Makeinfo a{
+    display: block;
+    width: 100%;
+    color: black;
+}
+.trackleftcol{
+    margin-right: 20px;
+}
+.trackrightCol{
+    background-color: white;
+}
+
+.tracktext{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    border: none;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    padding: 20px;
+    resize: none;
+    font-size: 16px;
+    outline: 0;
+}
+.tracktextbottom>span{
+    margin-left: 6%;
+    margin-right: 57%;
+}
+.tracktextbottom ::ng-deep nz-upload{
+    margin-right: 3%;
+}
+.tracktextbottom a{
+    font-size: 20px;
+    color: brown;
+}
+.tracktextbottom{
+    margin-bottom: 15px;
+}
+.trackhead{
+    padding-left: 40px;
+}
+.trackhead>a>img{
+    width: 45px;
+    height: 45px;
+    margin-top: -20px;
+    border-radius: 50%;
+    outline: none;
+}
+.trackuser{
+    width: 30%;
+    display: inline-block;
+    padding-top: 0px;
+    padding-left: 5px;
+    position: relative;
+    top: 7px;
+}
+.trackuser>li{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+.followsBtn{
+    margin-left: 350px;
+    position: relative;
+    top: -10px;
+}
+.tracktextContent{
+    padding: 5px 40px 10px 90px;
+    line-height: 1.6;
+    color: #333;
+}
+.trackMusicContent{
+    padding-left: 90px;
+    padding-right: 40px;
+    margin-bottom: 10px;
+}
+.trackMusicContent img{
+    width: 70px;
+    height: 70px;
+}
+.trackMusicContent ul{
+    width: 30%;
+    display: inline-block;
+    /* padding-top: 0px; */
+    padding-left: 5px;
+    position: relative;
+    top: 20px;
+    font-size: 15px;
+    margin-left: 10px;
+    /* margin-bottom: 0px; */
+}
+.trackMusicContent>div>ul>li:nth-child(1){
+    font-size: 17px;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.trackMusicContent>div>ul>li:nth-child(1) a:hover{
+    text-decoration-line: underline;
+}
+.trackMusicContent>div>ul>li:nth-child(2){
+    font-size: 10px;
+    color: #666666;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.trackMusicContent>div{
+    background-color: #f4f4f4;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.trackImgContent img{
+    width: 200px;
+    height: 200px;
+}
+.trackImgContent ul li{
+    float: left;
+    margin-right: 20px;
+}
+.trackImgContent{
+    padding-left: 50px;
+}
+.trackImgContent ul{
+    overflow: hidden;
+    zoom: 1;
+}
+.trackContentFooter ul li{
+    float: left;
+    /* padding-top: 10px; */
+    padding-left: 10px;
+    /* padding-bottom: 10px; */
+    width: 110px;
+}
+.trackContentFooter{
+    padding-left: 520px;
+}
+.trackContentFooter ul{
+    overflow: hidden;
+    zoom: 1;
+}
+.trackcommentDiv{
+    padding: 0px 60px 0px 90px;
+}
+.trackcommentDiv>div{
+    padding: 5px 15px;
+    background-color: #fafafa;
+    border-radius: 1%;
+    border: 1px solid #d9d9d9;
+    box-shadow: inset 0 0 0 1px #fcfcfc;
+}
+.uploadimagesUl{
+    overflow: hidden;
+    zoom: 1;
+    margin: 0px;
+    padding: 0px;
+}
+.uploadimagesUl img{
+    width: 50px;
+    height: 50px;
+}
+.uploadimagesUl  li{
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+}
+.trackDiv ::ng-deep .ant-divider-horizontal{
+    width: 80%;
+    min-width: 90%;
+    margin-left: 5%;
+}
+.trackFooter{
+    text-align: center;
+}
+.trackFooter a{
+    display: block;
+    width: 90%;
+    line-height: 40px;
+    margin-left: 5%;
+    background-color: #f4f4f4;
+    height: 40px;
+    color: #999;
+}

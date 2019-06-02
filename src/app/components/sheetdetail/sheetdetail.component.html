@@ -1,0 +1,96 @@
+<div nz-row style="    margin-top: 20px;">
+  <div nz-col nzSpan="5" class="sheetfirstCol" nzPush="1">
+    <div class="SheetImgdiv">
+      <a class="Abgimg">
+        <img [src]="sheetinfo?sheetinfo.coverimg:''" width="170px" height="170px">
+        <a class="coverpicture"></a>
+        <div class="imgbg"></div>
+      </a>
+      
+      </div>
+      <div class="sheetIntroText">
+          <span>歌单介绍:</span>
+          <div *ngIf="sheetinfo" >
+          {{sheetinfo.introduce}}              
+          </div>
+          <div *ngIf="!sheetinfo" >
+            暂无介绍         
+            </div>
+      </div>
+      
+  </div>
+  <div nz-col nzSpan="17" nzPush="1" class="sheetseCol">
+    <div>
+      <div class="one">
+          <a class="sheetuser"><img [src]="sheetinfo?sheetinfo.userheadimg:''">
+            <span *ngIf="sheetinfo">{{sheetinfo.producer}}</span>
+            <span *ngIf="!sheetinfo">未知</span>
+            </a>
+            <span style="color:gray; font-size: 14px" *ngIf="sheetinfo" >{{sheetinfo.time  | date:'yyyy-MM-dd HH:mm:ss'}} 创建</span>
+      </div>
+        <a class="sheetname " [title]="sheetinfo?sheetinfo.songsheetname:'未知'" >{{sheetinfo?sheetinfo.songsheetname:'未知'}}</a>
+        <ul class="tagul">
+          <li *ngFor="let tag of sheettags" ><nz-tag nzColor="#CD0000">{{tag}}</nz-tag> </li>
+        </ul>
+        <ul class="btnul">
+          <li>
+            <button nz-button nzShape="round" (click)="playAll()">全部播放</button>
+          </li>
+          <li>
+              <button nz-button nzShape="round" (click)="collectSheet()" *ngIf="!userinfo || !sheetinfo || !sheetinfo.collectstatus">收藏歌单</button>
+              <button nz-button nzShape="round" *ngIf="sheetinfo&&userinfo&&sheetinfo.collectstatus" >已收藏</button>
+          </li>
+          <li>
+   
+                <button nz-button nzShape="round" (click)="gotocomment()">发表评论</button>
+
+          </li>
+        </ul>
+        <div class="Songlist">
+            <nz-list [nzHeader]="Songlistheader"   >
+              <nz-list-item *ngFor="let item of SongArray;let i=index" >
+
+                <div class="songline">
+                    <div class="songlinenum"><a>{{i+(pagesize*(pagenumber-1))+1}}</a></div>
+                    <div class="songlinename">
+                      <div>
+                          <span><a [title]="item.musicname" [routerLink]="['/music',item.musicid]" routerLinkActive="router-link-active" >{{item.musicname}}</a></span>
+                      </div>
+                      
+                      <div class="songlinebtn">
+                          <a><i nz-icon type="play-circle" theme="outline" (click)="play(i)"></i></a>
+                          <a><i nz-icon type="folder-add" theme="outline" (click)="collectSheet(item.musicid)"></i></a>
+                          <a class="fa fa-download" aria-hidden="true"  [href]="item.musicaddress"></a>
+                      </div>
+                    </div>
+                    <div class="songlinesinger">
+                       <a [title]="item.singer">{{item.singer}}</a> 
+                    </div>
+                    <div class="songlinealbum">
+                       <a [title]="item.album">{{item.album}}</a> 
+                       <a *ngIf="item.album==''||item.album==null" >无</a> 
+                    </div>
+                    <div class="songlinetime">
+                       <a>{{item.time}}</a> 
+                    </div>
+                </div>
+              </nz-list-item>
+            </nz-list>
+            <nz-empty nzNotFoundContent="该歌单还没有收录歌曲" class="empty" *ngIf="!SongArray||SongArray.length==0"></nz-empty>
+            <nz-pagination [nzPageSize]="pagesize" (nzPageIndexChange)="IndexChange($event)" [nzTotal]="sheetinfo.count" *ngIf="sheetinfo" class="page" [(nzPageIndex)]="pagenumber" nzHideOnSinglePage="true"></nz-pagination>
+            <a id="comment"></a>
+            <app-comments [id]="sheetinfo.sheetid" [commenttype]="'sheet'" *ngIf="sheetinfo" ></app-comments>
+            
+            <ng-template #Songlistheader>
+                <ul class="Songlistheader">
+                  <li *ngIf="sheetinfo" >{{sheetinfo.count}}首</li>
+                  <li>歌曲</li>
+                  <li>歌手</li>
+                  <li>专辑</li>
+                  <li>时长</li>
+                </ul>
+            </ng-template>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div nz-row nzType="flex" class="Mycontent">
+  <div nz-col nzSpan="5" class="Mymusicbody leftDiv" nzOffset='3'>
+      <div nz-row class="leftFirstCol">
+            <div nz-col>
+                <div class="MyHeadImgDiv">
+                    <img [src]="userinfo.userheadimg">
+                </div>
+                <div class="UserInfoDiv">
+                            <span class="usernameSpan">{{userinfo.username}}</span>
+                         <ul class="userValueList">
+                            <li [routerLink]="['/track',userinfo.userid]"  style="outline: none"><a><span>{{social?social.trackcount:0}}</span>动态</a></li>
+                            <li><a><span>{{social?social.followcount:0}}</span>关注</a></li>
+                            <li><a><span>{{social?social.fanscount:0}}</span>粉丝</a></li>
+                          </ul>
+                          <form  nzLayout="horizontal" style="text-align: center;margin-top: 90px;">
+                              <nz-form-item>
+                                  <a [routerLink]="['/setting',userinfo?userinfo.userid:1]"><button nz-button nzType="primary" style="background: #C20C0C;border: none;">个人设置</button></a>
+                              </nz-form-item>
+                             
+                          </form>
+                </div>
+            </div>
+        </div>
+     <div nz-row class="leftSecoendCol">
+            <div nz-col >
+                    <form nz-form nzLayout="vertical">
+                            <nz-form-item>
+                                    <nz-form-label nzFor="introduce" style="text-align: center;">个人简介</nz-form-label>
+                                    <nz-form-text *ngIf="userinfo.signature&&userinfo.signature!=''">{{userinfo.signature}}</nz-form-text>
+                                    <nz-form-text *ngIf="(!userinfo.signature)||userinfo.signature==''">这个人很神秘，没有留下介绍呢</nz-form-text>
+                            </nz-form-item>
+                    </form>
+            </div>
+      </div>
+ 
+  </div>
+  <div nz-col nzSpan="12" class="Mymusicbody rightDiv" >
+      <div nz-row class="rightFirstRow">
+          <div nz-col>
+                <div class="CreateSheet">
+                        <ul class="newbtnlist">
+                            <li><span>创建的歌单</span></li>
+                            <li><button nz-button nzType="danger"  nzSize='small' (click)="open()" >新建歌单</button></li>
+                               <app-create-sheet [(visible)]="visible" (sheetChange)="addSheet($event)"></app-create-sheet>
+                        </ul>   
+                         <ul class="CreateSheetlist">
+                             <li *ngFor="let item of create" ><a [routerLink]="['/sheet',item.sheetid]"><img src="{{item.coverimg}}"><a class="coverimg"></a><a title="{{item.songsheetname}}"><div class="imgbg"><a>{{item.songsheetname}}</a></div></a></a></li>
+                             <nz-empty [nzNotFoundFooter]="'你还没有创建歌单呢!'" *ngIf="!createList||createList.length==0"></nz-empty>
+                         </ul>
+                         <div class="CreateSheetIndexList" *ngIf="createList&&createList.length" >
+                                 <nz-pagination [(nzPageIndex)]="createindex" [nzShowQuickJumper]=true [nzTotal]="createList.length" (nzPageIndexChange)="createpage()" [nzHideOnSinglePage]=true [nzSize]="'small'" [(nzPageSize)]="size" ></nz-pagination>
+                         </div>
+                </div>
+          </div>
+      </div>
+      <div nz-row class="rightSecondRow">
+            <div nz-col>
+                    <div class="CollectSheet">
+                            <ul class="newbtnlist">
+                                    <li><span>收藏的歌单</span></li>
+                                </ul> 
+                        <ul class="CollectSheetlist">
+                            <li *ngFor="let sheet of collect" ><a [routerLink]="['/sheet',sheet.sheetid]"><img src="{{sheet.coverimg}}"><a class="coverimg"></a><a title="{{sheet.songsheetname}}"><div class="imgbg"><a>{{sheet.songsheetname}}</a></div></a></a></li>
+                            <nz-empty [nzNotFoundFooter]="'你还没有收集歌单呢，快去收集吧!'" *ngIf="!collectList||collectList.length==0"></nz-empty>
+                          </ul>
+                        <div class="CollectSheetIndexList" *ngIf="collectList&&collectList.length" >
+                            <nz-pagination [(nzPageIndex)]="collectindex" [nzShowQuickJumper]=true [nzTotal]="collectList.length" [nzHideOnSinglePage]=true [nzSize]="'small'" [(nzPageSize)]="size" (nzPageIndexChange)="collectpage()"></nz-pagination>
+                         </div>
+                    </div>
+            </div>
+        </div>
+    
+  </div>
+</div>

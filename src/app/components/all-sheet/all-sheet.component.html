@@ -1,0 +1,45 @@
+<div nz-row>
+  <div nz-col nzSpan="18" nzPush="3" class="sheetcol">
+    <div nz-row>
+      <div nz-col nzSpan="3" >
+          <ul class="type">
+              <li class="typetitle"><i nz-icon nzType="radar-chart" nzTheme="outline"></i>全部</li>
+              <li class="typetitle"><i nz-icon nzType="global" nzTheme="outline"></i>语种</li>
+              <li class="typetitle"><i nz-icon nzType="deployment-unit" nzTheme="outline"></i>风格</li>
+              <li class="typetitle"><i nz-icon nzType="heart" nzTheme="outline"></i>情感</li>
+          </ul>
+      </div>
+      <div nz-col nzSpan="16" >
+            <ul class="all">
+              <li [ngClass]="{'active':selectType=='全部'}" (click)="selectTag('全部')"><a [class.activeIna]="selectType=='全部'" class="tag">全部</a></li>
+            </ul>
+            <ul class="language">
+              <li *ngFor="let item of language" [ngClass]="{'active':selectType==item}" (click)="selectTag(item)"><a [class.activeIna]="selectType==item" class="tag">{{item}}</a></li>
+            </ul>
+            <ul class="style">
+              <li *ngFor="let item of style" [ngClass]="{'active':selectType==item}" (click)="selectTag(item)"><a [class.activeIna]="selectType==item" class="tag">{{item}}</a></li>
+            </ul>
+            <ul class="emotion"> 
+              <li *ngFor="let item of emotion" [ngClass]="{'active':selectType==item}" (click)="selectTag(item)"><a [class.activeIna]="selectType==item" class="tag">{{item}}</a></li>
+            </ul>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col>
+          <nz-tabset>
+              <nz-tab [nzTitle]="selectType">
+                  <ul class="shUL">
+                    <li *ngFor="let item of Sheetlist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}' width="140px" height="140px"><a class="coverimg"></a><div class="imgbg">
+                      <!-- <i nz-icon type="customer-service" theme="outline"></i> -->
+                      <span>{{item.collectcount}}</span>
+                      <!-- <i nz-icon type="play-circle" theme="outline" title="播放"></i> -->
+                    </div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+                  </ul>
+                  <nz-pagination [(nzPageIndex)]="pageIndex" [nzTotal]="total" [(nzPageSize)]="pageSize" nzHideOnSinglePage="true" (nzPageIndexChange)="pageIndexChange()" ></nz-pagination>
+              </nz-tab>
+          </nz-tabset>
+      </div>
+    </div>
+
+  </div>
+</div>

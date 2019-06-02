@@ -1,0 +1,103 @@
+<div nz-row>
+    <div nz-col>
+      <nz-table  [nzData]="SingerArray" #basicTable nzBordered="true" nzShowPagination="false" [nzPageSize]="pageSize">
+          <thead>
+              <tr>
+                <!-- <th nzWidth="3%"><button nz-button (click)="batchDelete()" class="delete" nzType="primary">删除</button></th> -->
+                <th nzShowCheckbox="true" nzWidth="3%" (nzCheckedChange)="allcheck($event)" nzCustomFilter>
+                    <i nz-icon nzType="delete" nzTheme="outline" nz-popconfirm (nzOnConfirm)="batchDelete()" nzTitle="确认删除选中的数据?" class="ant-table-filter-icon"></i>
+                </th>
+                <th nzWidth="5%">ID</th>
+                <th nzCustomFilter>歌手名称 
+                  
+                  <nz-dropdown nzPlacement="bottomRight" #dropdown nzTrigger="click" nzClickHide="false" #dropdown nzTableFilter>
+                      <i
+                    nz-icon
+                    nzType="search"
+                    class="ant-table-filter-icon"
+                    [class.ant-table-filter-open]="dropdown.nzVisible"
+                    nz-dropdown
+                  ></i>    
+                    <div class="search-box" >
+                          <input type="text" nz-input placeholder="请输入关键词" [(ngModel)]="key" />
+                          <button nz-button nzSize="small" nzType="primary" (click)="search()" >
+                            搜索
+                          </button>
+                          <button nz-button nzSize="small" nzType="primary" (click)="reset()">
+                              重置
+                            </button>
+                        </div>
+                  </nz-dropdown>              
+                </th>
+                <th>歌手图片</th>
+                <th>性别</th>
+                <!-- <th>别名</th> -->
+                <th>简介</th>
+                <th>操作</th>
+              </tr>
+          </thead>
+          <tbody>   
+              <ng-template ngFor let-item [ngForOf]="basicTable.data">
+                  <tr>
+                      <!-- <td></td> -->
+                      <td nzShowCheckbox="true" nzWidth="3%" [(nzChecked)]="editCache[item.singerid].checked"></td>
+                      <td>{{item.singerid}}</td>
+                      <td>
+                          <ng-container *ngIf="!editCache[item.singerid].edit; else nameInputTpl">
+                             <div class="singername" [title]="item.singername"><span class="contentTr">{{item.singername}}</span>  </div>                           
+                          </ng-container>
+                          <ng-template #nameInputTpl>
+                            <input type="text" nz-input [(ngModel)]="item.singername" width="110px"/>
+                          </ng-template>
+                      </td>
+                      <td>
+                          <ng-container *ngIf="!editCache[item.singerid].edit; else singerInputTpl">
+                             <div class="coverimg" [title]="item.singerimg"> <span class="contentTr">{{item.singerimg}}</span></div>
+                          </ng-container>
+                          <ng-template #singerInputTpl>
+                            <input type="text" nz-input [(ngModel)]="item.singerimg" width="580px"/>
+                          </ng-template>
+                      </td>
+                      <td>
+                          <ng-container *ngIf="!editCache[item.singerid].edit; else languageInputTpl">
+                              <span class="contentTr">{{item.singersex}}</span>
+                          </ng-container>
+                          <ng-template #languageInputTpl>
+                            <input type="text" nz-input [(ngModel)]="item.singersex" width="50px"/>
+                          </ng-template>
+                      </td>                    
+                      <!-- <td>
+                          <ng-container *ngIf="!editCache[item.singerid].edit; else addressInputTpl">
+                              <span class="contentTr">{{item.alias}}</span>
+                          </ng-container>
+                          <ng-template #addressInputTpl>
+                            <input type="text" nz-input [(ngModel)]="item.alias" />
+                          </ng-template>
+                      </td> -->
+                      <td>
+                        <button nz-button (click)="checkdesc(item.singerid)" nzSize="small" class="checkdesc">查看简介</button>
+                      </td>
+                      <td>
+                          <div class="editable-row-operations">
+                              <ng-container *ngIf="!editCache[item.singerid].edit; else saveTpl">
+                                <div style="width: 50px"><a (click)="startEdit(item.singerid)">编辑</a></div>
+                              </ng-container>
+                              <ng-template #saveTpl>
+                                <ul style="width: 50px">
+                                  <li><a (click)="saveEdit(item.singerid)">保存</a></li>
+                                  <li><a nz-popconfirm nzTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(item.singerid)">取消</a></li>
+                                </ul>
+                              </ng-template>
+                          </div>
+                      </td>                   
+                  </tr>
+              </ng-template>
+          </tbody>
+      </nz-table>
+      <nz-pagination [(nzPageIndex)]="pageIndex" (nzPageIndexChange)="indexchange()" [nzTotal]="total" [(nzPageSize)]="pageSize" class="page"></nz-pagination>
+    </div>
+  </div>
+  <nz-drawer [nzVisible]="visible" [nzTitle]="title" [nzMaskClosable]="true"  [nzClosable]="false" (nzOnClose)="close()" nzWidth="300">
+    <textarea [(ngModel)]="text" rows="20" cols="50"></textarea><br>
+    <button nz-button (click)="savedesc()">保存</button><button nz-button (click)="close()">取消</button>
+  </nz-drawer>

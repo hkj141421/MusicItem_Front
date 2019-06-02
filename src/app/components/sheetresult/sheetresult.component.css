@@ -1,0 +1,67 @@
+.resUl
+{
+     list-style: none;
+}
+.resUl::after
+{
+    content: " ";
+    display: block;
+    clear: both;
+}
+.resUl li
+{
+    float: left;
+    margin: 1%;
+}
+.resUl .Abgimg{
+    position: relative;
+}
+.resUl .coverimg{
+    width: 140px;
+    height: 140px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    z-index: 2;
+    position: absolute;
+    top: -60px;
+    left: 0px;
+}
+.resUl .imgbg{
+    z-index: 3;
+    margin-top: 0px;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    top: -30px;
+    color: gainsboro;
+    height: 30px;
+    line-height: 30px;
+}
+.resUl .imgbg i{
+    margin-left: 6px;
+    font-size: 18px;
+}
+.resUl .imgbg i:hover{
+    color: white;
+}
+.resUl .imgbg span{
+    margin-right: 40px;
+    margin-left: 5px;
+}
+.resUl .textlink{
+    position: relative;
+    top: -30px;
+    color: black;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 140px;
+}
+.resUl .textlink:hover{
+    text-decoration:underline;
+}
+.page ::ng-deep .ant-pagination
+{
+    text-align: center;
+}

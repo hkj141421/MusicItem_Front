@@ -1,0 +1,66 @@
+.search-box {
+    padding: 8px;
+  }
+
+.search-box input {
+width: 188px;
+margin-bottom: 8px;
+display: block;
+}
+
+.search-box button {
+width: 90px;
+margin-right: 5px;
+}
+
+.search-button {
+margin-right: 8px;
+}
+.delete{
+  width: 30px;
+  height: 20px;
+  font-size: 10px;
+  padding: 0;
+}
+.child ::ng-deep .ant-table-placeholder{
+  padding: 0px;
+}
+.page ::ng-deep  .ant-pagination{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+ul{
+  padding: 0;
+  list-style: none;
+}
+.coverimg{
+  width: 188px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.type{
+  width: 188px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.coverimg{
+  width: 670px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.producer{
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.songsheetname{
+  width: 420px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

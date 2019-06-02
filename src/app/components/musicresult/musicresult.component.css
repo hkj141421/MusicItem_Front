@@ -1,0 +1,93 @@
+.songlinesinger{
+    width: 150px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songline a{
+    color: black;
+}
+.songline
+{
+    width: 100%;
+}
+.songline div{
+    float: left;
+}
+.songlinenum{
+    margin-left: 60px;
+    width: 50px;
+}
+.songlinename
+{
+    width: 50%;
+    padding-left: 4%;
+}
+.songlinename > div:nth-child(1){
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinebtn{
+    width: 46%;
+    margin-top: -16px;
+    position: relative;
+    top: 8px;
+    visibility:hidden;
+}
+.songlinebtn a{
+    font-size: 25px;
+    margin-right: 25px;
+    color: gray;
+}
+.songlinebtn a:hover{
+    color: rgb(205, 0, 0);
+}
+.ant-list-item:hover .songlinebtn{
+    visibility:visible;
+}
+.songlinesinger{
+    width: 150px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.songlinealbum{
+    width: 175px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+}
+.songlinetime a{
+    color: black;
+}
+.Songlistheader::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+.Songlistheader{
+    list-style: none;
+    padding-left: 4%;
+}
+.Songlistheader li{
+    float: left;
+
+}
+/* .Songlistheader li:nth-child(1){
+    width: 3%;
+    margin-right: 5%;
+    text-align: center;
+} */
+.Songlistheader li:nth-child(1){
+    margin-right: 44%;
+}
+.Songlistheader li:nth-child(2){
+    margin-right: 15%;
+}
+.Songlistheader li:nth-child(3){
+    margin-right: 18.5%;
+}

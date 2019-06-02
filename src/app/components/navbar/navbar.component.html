@@ -1,0 +1,69 @@
+<nz-layout>
+  <nz-header class="navhead">
+      <div nz-row nzType="flex" >
+        <div nz-col nzSpan='4' class="navtitle" nzOffset='1'><h1>时代音乐</h1></div>
+        <div nz-col nzSpan='2' class='navlink' [routerLink]="['/home']" routerLinkActive="active"><a>首页</a></div>
+        <div nz-col nzSpan='2' class='navlink' [routerLink]="['/mymusic']" routerLinkActive="active"><a>我的音乐</a></div>
+        <div nz-col nzSpan='2' class='navlink' [routerLink]="['/social']" routerLinkActive="active"><a>社交</a></div>
+        <div nz-col nzSpan='2' class='navlink' [routerLink]="['/band']" routerLinkActive="active"><a>排行榜</a></div>
+        <div nz-col nzSpan='2' class='navlink'><a class="back" [routerLink]="['/backstage']" routerLinkActive="active" *ngIf="authority=='ADMIN'||authority=='SUPER ADMIN'" >管理</a></div>
+        <div nz-col nzSpan='4' nzOffset='1' class="navsearchdiv">
+             <nz-input-group [nzSuffix]="suffixIconSearch">
+                <input type="text" nz-input placeholder="请输入关键词" [(ngModel)]="searchkey" maxlength="30" (keydown)="onKey($event)" >
+              </nz-input-group>
+              <ng-template #suffixIconSearch>
+                <i nz-icon type="search" (click)="search()"></i>
+              </ng-template>
+        </div>
+        <div nz-col nzSpan='4' class="navuserdiv">
+            <img [src]="userinfo.userheadimg" *ngIf="userinfo">
+            <div style="display: inline-block;" *ngIf="!userinfo"><a (click)="showlogin()" >登录</a>/<a [routerLink]="['/register']">注册</a></div>
+            <div style="display: inline-block;" *ngIf="userinfo" ><a [title]="userinfo.username" class="userName">{{userinfo.username}}</a><a (click)="cancalLogin()" style="margin-left: 10px;    position: relative;top: -25px;">注销</a></div>
+        </div>
+        <nz-modal [(nzVisible)]="loginDivVisible" [nzTitle]="logintitle" [nzFooter]="null" (nzOnCancel)="cancal()">
+            <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="login()">
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixUser">
+                      <input type="text" nz-input formControlName="userName" placeholder="请输入账号" />
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors"
+                      >请输入你的账号!</nz-form-explain
+                    >
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixLock">
+                      <input type="password" nz-input formControlName="password" placeholder="请输入密码" />
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors"
+                      >请输入你的密码!</nz-form-explain
+                    >
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <!-- <label nz-checkbox formControlName="remember">
+                      <span>Remember me</span>
+                    </label> -->
+                    
+                    <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
+                    <a class="login-form-forgot" class="login-form-forgot">忘记密码</a>
+                    <a href="">现在就去注册!</a>
+                  </nz-form-control>
+                </nz-form-item>
+              </form>
+              <ng-template #logintitle><div style="text-align: center">登录</div></ng-template>
+              <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+              <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
+        </nz-modal>
+      </div>
+  </nz-header>
+  <nz-footer class="navfoot">
+      <div nz-row>
+          <div nz-col nzSpan="24"></div>
+      </div>
+  </nz-footer>
+</nz-layout>
+

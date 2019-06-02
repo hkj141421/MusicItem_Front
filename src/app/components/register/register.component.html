@@ -1,0 +1,67 @@
+<div nz-row>
+    <div nz-col nzSpan="12" nzPush="6" class="registformCol">
+        <span class="title">注册</span>
+        <form nz-form nzLayout="inline" [formGroup]="registerGroup">
+            <nz-form-item nzFlex="true">
+                <nz-form-label nzFor="email">邮箱</nz-form-label>
+                <nz-form-control>
+                    <input nz-input type="email" name="email" placeholder="请输入邮箱" formControlName="email">
+                    <nz-form-explain *ngIf="false" >邮箱已存在，请更换邮箱</nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-label nzFor="verifycode">验证码</nz-form-label>
+                    <nz-form-control>
+                       <p><input nz-input type="text" name="verifycode" class="verInput" placeholder="请输入验证码" formControlName="verifycode"><a (click)="refushCode()"><img [src]="VerImg" class="verimg"></a></p> 
+                       <nz-form-explain *ngIf="false">验证码错误,请重新输入</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-label nzFor="emailverifycode">邮箱验证</nz-form-label>
+                    <nz-form-control>
+                       <p>
+                            <input nz-input type="text" name="emailverifycode" class="verInput" placeholder="请输入验证码" formControlName="emailverifycode">
+                            <button nz-button class="verbtn" (click)="sendEmailCode()" *ngIf="emailCodebtn" style="color: #40a9ff;border: 1px solid;">发送验证码</button>
+                            <button nz-button class="verbtn" *ngIf="!emailCodebtn">{{timecount}}s后可重发</button>
+                        </p> 
+                       <nz-form-explain *ngIf="false">验证码错误,请重新输入</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-label nzFor="account">账号</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input type="text"  name="account"  placeholder="请输入账号" formControlName="account">
+                        <nz-form-explain *ngIf="false">必须是9-12位的字母或数字组合</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-label nzFor="username">用户名</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input type="text"  name="username" placeholder="请输入用户名" formControlName="username">
+                        <nz-form-explain style="color: #666">注册后用户名不可更改</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-label nzFor="password">密码</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input type="password" name="password" placeholder="请输入密码" formControlName="password">
+                        <nz-form-explain *ngIf="false">必须是9-12位的字母和数字组合</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true"> 
+                    <nz-form-label nzFor="repassword">重复密码</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input type="password" name="repassword" placeholder="请再次输入密码" formControlName="repassword">
+                        <nz-form-explain *ngIf="false">两次输入的密码不一致</nz-form-explain>
+                    </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nzFlex="true">
+                    <nz-form-control class="registerBtn">
+                        <button nz-button (click)="register()">注册</button>
+                    </nz-form-control>
+            </nz-form-item>
+        </form>
+        
+        
+    </div>
+</div>

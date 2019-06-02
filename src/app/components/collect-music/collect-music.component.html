@@ -1,0 +1,7 @@
+<nz-modal [(nzVisible)]="AddSheetVisibale" nzTitle="添加到歌单" [nzFooter]="null" class="addsheetdiv" (nzOnCancel)="AddMusicToSheet(null)">
+    <nz-list>
+        <nz-list-item (click)="AddMusicToSheet(item.sheetid)" *ngFor="let item of userSheet" class="listitem">
+          <nz-list-item-meta [nzAvatar]="item.coverimg" nzDescription="{{item.count}}首" [nzTitle]="item.songsheetname"></nz-list-item-meta>
+        </nz-list-item>
+    </nz-list> 
+  </nz-modal>

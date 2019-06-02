@@ -1,0 +1,13 @@
+<div nz-row>
+    <div nz-col>
+        <ul class="resUl">
+          <li *ngFor="let item of result"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}' width="140px" height="140px"><a class="coverimg"></a><div class="imgbg">
+            <!-- <i nz-icon type="customer-service" theme="outline"></i> -->
+            <span>{{item.collectcount}}</span>
+            <!-- <i nz-icon type="play-circle" theme="outline" title="播放"></i> -->
+          </div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+        </ul>
+        <nz-empty nzNotFoundContent="很抱歉，未能找到相关搜索结果！" *ngIf="!result||result.length==0" ></nz-empty>
+        <nz-pagination [(nzPageIndex)]="pagenumber" [nzTotal]="total" [(nzPageSize)]="pagesize" nzHideOnSinglePage="true" (nzPageIndexChange)="IndexChange()" class="page"></nz-pagination>
+    </div>
+</div>

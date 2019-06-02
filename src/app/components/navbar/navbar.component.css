@@ -1,0 +1,88 @@
+.navhead{
+    background: white;
+    text-align: center;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.navhead a{
+    color: black;
+}
+.navhead img{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+    position: relative;
+    top: -30px;
+}
+.navlist{
+    width: 100px;
+}
+.navlist a{
+    color: black;
+   
+}
+.navhead input{
+    /* height: 35px; */
+    min-height: 35px;
+    border-radius: 20px;
+    outline: none;
+    border: 0;
+    background-color: #ebebeb;
+}
+.navtitle h1{
+    color: black;
+    background: url(../../../assets/images/logo.png) no-repeat 3px 12px;
+    background-size: 40px 40px;
+}
+.navsearchdiv{
+    /* margin-top: 12px; */
+    /* margin-left: 140px; */
+}
+.navlink{
+    outline: none;
+}
+.navlink:hover a{
+    color: #C20C0C;
+}
+.active a{
+    color: #C20C0C;
+    border:none; 
+    outline: none;
+}
+.navlink:hover a{
+    /* color: black; */
+}
+.navfoot{
+    padding: 0.2px;
+    /* background-color: #C20C0C; */
+    /* border-bottom: 1px solid #a40011; */
+    /* box-shadow: 0 77px 0px rgba(0, 0, 0, 0); */
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.navuserdiv{
+    vertical-align: middle;
+}
+.login-form {
+    max-width: 300px;
+    margin-left: 18%;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+.back{
+    display: block;
+    width: 100%;
+}
+.userName{
+    width: 74px;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

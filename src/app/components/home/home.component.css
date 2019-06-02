@@ -1,0 +1,594 @@
+
+.carouselDiv{
+    height: 335px;
+}
+ul{
+    list-style: none;
+}
+.carouselDiv ::ng-deep body{
+    background-color: #f5f5f5;
+}
+.imgdiv{
+    height: 335px;
+}
+.imgdiv img{
+    height: 335px;
+    width: 100%;
+}
+.leftdiv{
+    width: 50px;
+    height: 100px;
+    text-align: center;
+    position: absolute;
+    top: 120px;
+    left: 150px;
+    color:white;
+}
+.leftdiv:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.leftdiv i{
+    margin-top: 40px;
+    font-size: 30px;
+}
+.rightdiv{
+    width: 50px;
+    height: 100px;
+    text-align: center;
+    position: absolute;
+    top: 120px;
+    right: 150px;
+    color:white;
+}
+.rightdiv:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.rightdiv i{
+    margin-top: 40px;
+    font-size: 30px;
+}
+.leftContext{
+    /* border-left: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3; */
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+.rightContext{
+    /* border-left: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3; */
+    margin-top: 20px;
+}
+.tabsetdiv li img{
+    width: 140px;
+    height: 140px;
+    border: 1px solid gainsboro;
+}
+.bodyDiv ::ng-deep .ant-tabs-nav-wrap{
+    height: 45px;
+    width: 337px;
+}
+
+.bodyDiv ::ng-deep .ant-tabs-bar{
+    border-bottom: 2px solid #C10D0C;
+    width: 620px;
+    margin-left: 20px;
+}
+.bodyDiv ::ng-deep nz-tabs-ink-bar{
+height: 0px;
+}
+.bodyDiv ::ng-deep .ant-tabs-ink-bar{
+    height: 0px;
+}
+.bodyDiv ::ng-deep .ant-tabs-nav .ant-tabs-tab-active{
+    color: #C10D0C;
+}
+.bodyDiv ::ng-deep .ant-tabs-nav .ant-tabs-tab:hover{
+    color: #C10D0C;
+}
+.bodyDiv ::ng-deep .ant-tabs-nav .ant-tabs-tab{
+    margin:0px;
+}
+.bodyDiv ::ng-deep .ant-badge-count{
+    z-index: 2;
+}
+.tabsetdiv ul li{
+    float: left;
+    margin-right: 15px;
+    width: 140px;
+    margin-bottom: 20px;
+    height: 182px; 
+}
+.imgbg{
+    z-index: 3;
+    margin-top: 0px;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    top: -30px;
+    color: gainsboro;
+    height: 30px;
+    line-height: 30px;
+}
+.imgbg i{
+    margin-left: 6px;
+    font-size: 18px;
+}
+.imgbg i:hover{
+    color: white;
+}
+.textlink{
+    position: relative;
+    top: -30px;
+    color: black;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 140px;
+}
+.textlink:hover{
+    text-decoration:underline;
+}
+.imgbg span{
+    margin-right: 40px;
+    margin-left: 5px;
+}
+.morelabel:hover{
+    color: #C10D0C;
+}
+.newMusicDiv{
+    margin-top: -50px;
+}
+.newMusicDiv ul{
+    margin-top: 30px;
+}
+.newMusicDiv ul li{
+    float: left;
+    margin-right: 30px;
+    font-size: 12px;
+    
+}
+.newimgdiv{
+    /* width: 110px;
+    height: 110px;
+    border: 1px #d3d3d3 solid;
+    line-height: 140px;
+    vertical-align: middle;
+     margin-left: 18px;
+    text-align: center;
+    display: table-cell; */
+}
+.newimgdiv img{
+    width: 100px;
+    height: 100px;
+    margin-left: 4px;
+}
+.newSinger{
+    display: block;
+    width: 110px;
+    color: black;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    top: -15px;
+}
+.newSinger:hover{
+    text-decoration-line: underline;
+    text-decoration-color: black;
+}
+.newmusicName{
+    display: block;
+    color: rgb(153, 153, 153);
+    width: 110px;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    top: -15px;
+}
+.newmusicName:hover{
+    text-decoration-line: underline;
+    text-decoration-color: rgb(153, 153, 153);
+}
+.bgdiv{
+    height: 190px;
+    background-color: #f5f5f5;
+    width: 620px;
+    margin-left: 20px;
+    border:1px solid #d3d3d3;
+    vertical-align: middle;
+}
+.coverimg2:hover + .playbtn{
+    visibility: visible;
+}
+.playbtn{
+    position: relative;
+    float: left;
+    top: -30px;
+    left: 80px;
+    font-size: 16px;
+    color: gainsboro;
+    visibility: hidden;
+    z-index: 3;
+}
+.playbtn:hover{
+    visibility: visible;
+    color: white;
+}
+.leftIcon{
+    position: absolute;
+    top: 140px;
+    color: grey;
+    font-size: 15px;
+    left: 33px;
+}
+.rightIcon{
+    position: absolute;
+    top: 140px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 50px;
+    color: grey;
+}
+.coverimg{
+    width: 140px;
+    height: 140px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    z-index: 2;
+    position: absolute;
+    top: -60px;
+    left: 0px;
+}
+.coverimg2{
+    width: 120px;
+    height: 100px;
+    padding-left: -4px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: 4px -570px;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.coverimg3{
+    width: 80px;
+    height: 80px;
+    background-image: url(../../../assets/images/coverall.png);
+    background-repeat: no-repeat;
+    background-position: -129px -147px;
+    z-index: 2;
+    position: absolute;
+    top: 19px;
+    left: 30px;
+}
+.thtable{
+    position: relative;
+    height: 120px;
+
+}
+
+.thtable img{
+    width: 80px;
+    height: 80px;
+    margin-left: 30px;
+}
+.thtable ul{
+    width: 120px;
+    position: absolute;
+    top: 40px;
+    left: 80px;
+}
+.thtable ul li{
+    margin-bottom: 10px;
+}
+.thtable ul li a{
+    font-size: 20px;
+    margin-right: 5px;
+    color: darkgray;
+}
+.thtable ul li a:hover{
+    color: gray;
+}
+.Abgimg{
+    position: relative;
+}
+.bodyDiv :host ::ng-deep .ant-table table{
+    width: 620px;
+    margin-left: 22px;
+}
+.bodyDiv :host ::ng-deep .ant-table table th{
+    border:1px solid #d3d3d3;
+    background-color: #f9f9f9;
+    width: 310px;
+}
+.bodyDiv :host ::ng-deep .ant-table table td{
+    width: 310px;
+}
+.trBand:nth-child(odd) td{
+    background-color: #f1f1f1;
+}
+.trBand:nth-child(even) td{
+    background-color: #f9f9f9;
+}
+
+.trBand td{
+    /* line-height: 100%; */
+}
+
+.bodyDiv :host ::ng-deep .ant-table table tbody tr td:hover a{
+    visibility: visible;
+}
+.bandNum{
+    margin-left: 20px;
+    /* margin-right: 10px; */
+    position: relative;
+    top: -4px;
+    color: black;
+    display: inline-block;
+    width: 25px;
+}
+:host ::ng-deep .ant-table table tbody tr:nth-of-type(1) .bandNum{
+    color: #C10D0C;
+}
+:host ::ng-deep .ant-table table tbody tr:nth-of-type(2) .bandNum{
+    color: #C10D0C;
+}
+:host ::ng-deep .ant-table table tbody tr:nth-of-type(3) .bandNum{
+    color: #C10D0C;
+}
+.bandName{
+    display: inline-block;
+    width: 100px;
+    color: black;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+.bandBtnList{
+    width: 100px;
+    float: right;
+    
+}
+.bandBtnList a{
+    margin-right: 10px;
+    visibility: hidden;
+    color: darkgray;
+}
+
+.ant-table-tbody > tr:hover a{
+    visibility: visible;
+    color: gray;
+}
+.userDiv{
+    width: 260px;
+    height: 240px;
+    /* background-image: url(userDivBgImg.jpg); */
+    background-position: 0px -30px;
+    position: absolute;
+    /* top: 0px; */
+    /* margin-bottom: 22px; */
+    background-color: white;
+    /* left: 0px; */
+    /* border-bottom: 1px solid #d3d3d3; */
+}
+.headimgDiv{
+    border: 1px solid #e8e8e8;
+    width: 100px;
+    height: 100px;
+    margin-left: 75px;
+    margin-top: 30px;
+}
+.headimgDiv img{
+    width: 90px;
+    height: 90px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+.userName{
+    display: block;
+    float: right;
+    width: 50%;
+    white-space: pre;
+    text-overflow: ellipsis;
+    display: block;
+    text-align: center;
+    margin: 3% 25%;
+    /* overflow: hidden; */
+    /* position: absolute; */
+    /* top: 70px; */
+    /* left: 155px; */
+    color: black;
+}
+.userValueList{
+    margin-top: 18px;
+}
+.userValueList::after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.userValueList li{
+    float: left;
+    width: 65px;
+    height: 40px;
+    /* border-right: 1px solid #d5d5d5; */
+}
+.userValueList li:nth-of-type(1){
+    border-right: 1px solid #d5d5d5;
+}
+.userValueList li:nth-of-type(2){
+    border-right: 1px solid #d5d5d5;    
+}
+.userValueList li a{
+    color: black;
+    display: block;
+    width: 100%;
+    /* margin-left: 20px; */
+    text-align: center;
+}
+.userValueList li a:hover{
+    color:#1890ff;
+}
+.userValueList li a span{
+    display: block;
+    font-size: 20px;
+    height: 24px;
+}
+.btnEvent{
+    position: absolute;
+    top: 100px;
+    left: 155px;
+}
+.singerItem img{
+    width: 65px;
+    height: 65px;
+}
+.singerItem ul{
+    margin-left: -20px;
+}
+.singerItem ul a{
+    color: black;
+}
+.singerItem ul a li:nth-of-type(1){
+    margin-top: 9px;
+}
+.singerItem:hover{
+    background-color: #f5f5f5;
+}
+.singerItem{
+    width: 210px;
+    margin-left: 20px;
+}
+.SingerDiv{
+    width: 260px;
+    position: absolute;
+    top: 265px;
+    background-color: white;
+}
+.singerList{
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+:host ::ng-deep .SingerDiv .ant-list-footer{
+    width: 210px;
+    margin-left: 20px;
+}
+:host ::ng-deep .SingerDiv .ant-list-footer a{
+    color: black;
+}
+:host ::ng-deep .SingerDiv .ant-list-footer a:hover{
+    text-decoration: underline;
+}
+.rondomDiv{
+    position: absolute;
+    top: 730px;
+    width: 260px;
+    background-color: white;
+}
+.randomList{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.randomItem a{
+    color: black;
+}
+.randomItem a:hover{
+    color: #1890ff;
+}
+.randomItem a span:nth-of-type(1){
+    display: inline-block;
+    width: 80px;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+}
+.randomItem a span:nth-of-type(2){
+    display: inline-block;
+    width: 60px;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* margin: 0px; */
+    position: relative;
+    top: 5px;
+}
+.randomItem a span:nth-of-type(3){
+    display: inline-block;
+    width: 30px;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* margin: 0px; */
+    position: relative;
+    top: 5px;
+}
+:host ::ng-deep .rondomDiv .ant-tabs-extra-content{
+    float: right;
+    position: absolute;
+    top: 3px;
+    left: 160px;
+    font-size: 12px;
+    z-index: 2;
+}
+:host ::ng-deep .rondomDiv .ant-tabs-extra-content a{
+    color: black;
+}
+:host ::ng-deep .rondomDiv .ant-tabs-extra-content a:hover{
+    color: #C10D0C;
+}
+:host ::ng-deep .rondomDiv .ant-list-footer a{
+    color: black;
+}
+:host ::ng-deep .rondomDiv .ant-list-footer a:hover{
+    text-decoration: underline;
+}
+.likeIcon{
+    position: relative;
+    top: 5px;
+    color: #C10D0C;
+}
+.addsheetdiv ::ng-deep .ant-modal-body
+{
+    overflow: auto;
+    /* min-height: 300px; */
+    height: 300px;
+}
+.mata ::ng-deep .ant-list-item-meta-description{
+    line-height: 100%;
+}
+.mata ::ng-deep .ant-list-item-meta-title{
+    width: 165px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.matasinger{
+    margin-right: 20px; 
+    display: inline-block;
+    width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.rondomDiv ::ng-deep .ant-tabs-bar{
+    width: 85%;
+}
+.SingerDiv ::ng-deep .ant-tabs-bar{
+    width: 85%;
+}
+.SingerDiv ::ng-deep  .ant-tabs-extra-content a{
+    color: black;
+}
+.SingerDiv ::ng-deep  .ant-tabs-extra-content a:hover{
+    color: #C10D0C;
+}

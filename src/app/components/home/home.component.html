@@ -1,0 +1,217 @@
+ <!-- <div class="carouselDiv">
+ 
+ <nz-carousel nzAutoPlay  [nzEffect]="'fade'" #carouselImg>
+    <div *ngFor="let url of imgArray" nz-carousel-content class="imgdiv">
+      <img src="{{url}}">
+    </div> 
+  </nz-carousel>
+  <div class="leftdiv" (click)='carouselImg.pre()'><i nz-icon [type]="'left'" ></i></div>
+  <div class="rightdiv" (click)='carouselImg.next()'><i nz-icon [type]="'right'"></i></div>
+  </div> -->
+  <div nz-row nzType="flex" class="bodyDiv">
+    <div nz-col nzSpan="12" class="Contextbody leftContext" nzOffset='3'>
+      <!-- 热门推荐 -->
+      <nz-tabset class="tabsetdiv" [nzTabBarExtraContent]="more">
+          <nz-tab nzTitle="热门推荐" (nzSelect)="loadData('推荐')">
+              <ul>
+                <li *ngFor="let item of Sheetlist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}'><a class="coverimg"></a><div class="imgbg"><i nz-icon type="customer-service" theme="outline"></i><span>{{item.collectcount}}</span><i nz-icon type="play-circle" theme="outline" title="播放"></i></div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+              </ul>
+          </nz-tab>
+        <nz-tab nzTitle="华语" (nzSelect)="loadData('华语')">
+          <ul >
+              <li *ngFor="let item of Chinalist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}'><a class="coverimg"></a><div class="imgbg"><i nz-icon type="customer-service" theme="outline"></i><span>{{item.collectcount}}</span><i nz-icon type="play-circle" theme="outline" title="播放"></i></div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+          </ul>
+        </nz-tab>
+        <nz-tab nzTitle="流行" (nzSelect)="loadData('流行')">
+            <ul >
+                <li *ngFor="let item of Currentlist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}'><a class="coverimg"></a><div class="imgbg"><i nz-icon type="customer-service" theme="outline"></i><span>{{item.collectcount}}</span><i nz-icon type="play-circle" theme="outline" title="播放"></i></div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+              </ul>
+        </nz-tab>
+        <nz-tab nzTitle="摇滚" (nzSelect)="loadData('摇滚')">
+            <ul>
+                <li *ngFor="let item of Rocklist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}'><a class="coverimg"></a><div class="imgbg"><i nz-icon type="customer-service" theme="outline"></i><span>{{item.collectcount}}</span><i nz-icon type="play-circle" theme="outline" title="播放"></i></div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+              </ul>
+        </nz-tab>
+        <nz-tab nzTitle="民谣" (nzSelect)="loadData('民谣')">
+            <ul >
+                <li *ngFor="let item of poplist"><a [routerLink]="['/sheet', item.sheetid]"><a class="Abgimg"><img src='{{item.coverimg}}'><a class="coverimg"></a><div class="imgbg"><i nz-icon type="customer-service" theme="outline"></i><span>{{item.collectcount}}</span><i nz-icon type="play-circle" theme="outline" title="播放"></i></div></a><a class="textlink" title="{{item.songsheetname}}">{{item.songsheetname}}</a></a></li>
+              </ul>
+        </nz-tab>
+      </nz-tabset>`
+      <ng-template #more>
+          <a class="morelabel" [routerLink]="['/allsheet']"><span style="color:rgba(0, 0, 0, 0.65)">更多</span><i nz-icon type="arrow-right" theme="outline" style="color:#C10D0C;"></i></a>
+      </ng-template>
+      <ng-template #more2>
+          <a class="morelabel"><span style="color:rgba(0, 0, 0, 0.65)">更多</span><i nz-icon type="arrow-right" theme="outline" style="color:#C10D0C;"></i></a>
+      </ng-template>
+      <ng-template #more3>
+          <a class="morelabel" [routerLink]="['/band']" ><span style="color:rgba(0, 0, 0, 0.65)">更多</span><i nz-icon type="arrow-right" theme="outline" style="color:#C10D0C;"></i></a>
+      </ng-template>
+      <!-- 新歌上架 -->
+      <nz-tabset class="newMusicDiv">
+          <nz-tab nzTitle="新歌上架" >
+              <div class="bgdiv">            
+               <nz-carousel nzDots=false #carousel>
+                  <div nz-carousel-content>  
+                    <ul>
+                        <li *ngFor="let i of newMusicList">
+                          <a [routerLink]="['/music', i.musicid]">
+                                <div class="Abgimg">
+                                  <div class="newimgdiv">
+                                    <a>
+                                      <img src='{{i.musicimg}}'>
+                                    </a>
+                                  </div>
+                                  <a class="coverimg2"></a>
+                                  <a class="playbtn">
+                                    <i nz-icon type="play-circle" theme="outline" title="播放"></i>
+                                  </a>
+                                </div>
+                                <a class="newSinger" [title]="i.singer">{{i.singer}}</a>
+                                <a class="newmusicName" [title]="i.musicname">{{i.musicname}}</a>
+                          </a>
+                        </li>                
+                    </ul>
+                  </div>
+                </nz-carousel>
+                <a class="leftIcon" (click)='lastpage()'><i nz-icon type="left" theme="outline"></i></a>
+                <a class="rightIcon" (click)='nextpage()'><i nz-icon type="right" theme="outline"></i></a>
+              </div>
+          </nz-tab>
+        </nz-tabset>`
+      <!-- 排行榜 -->
+      <nz-tabset [nzTabBarExtraContent]="more3">
+          <nz-tab nzTitle="榜单">
+              <div nz-row>
+                <div nz-col nzSpan="11" nzPush="1">
+                    <nz-table #newbandData [nzBordered]='true' [nzShowPagination]='false' [nzData]="newBandList">
+                        <thead>
+                          <th class="thtable">
+                            <img src="../../../assets//images/newband.jpg">
+                            <a class="coverimg3"></a>
+                            <ul class="">
+                              <li><span>新歌榜</span></li>
+                              <!-- <li>
+                                <a><i nz-icon type="play-circle" theme="outline"></i></a>
+                                <a><i nz-icon type="folder-add" theme="outline"></i></a>
+                              </li> -->
+                            </ul>
+                          </th>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let item of newbandData.data;let i=index" class="trBand">
+                                  <td>
+                                    <a class="bandNum">{{i+1}}</a>
+                                    <a class="bandName" [routerLink]="['/music', item.musicid]">{{item.musicname}}</a>
+                                    <div class="bandBtnList">
+                                        <a (click)="addToaudio(i,'new')"><i nz-icon type="play-circle" theme="outline"></i></a>
+                                        <a (click)="addToaudiowait(i,'new')"><i nz-icon type="plus" theme="outline"></i></a>
+                                        <a (click)="addToSheet(item.musicid)"><i nz-icon type="folder-add" theme="outline"></i></a>
+                                    </div>
+                                  </td>
+                                </tr>
+                        </tbody>
+                      </nz-table>
+                </div>
+                <div nz-col nzSpan="11" nzPush="1">
+                    <nz-table #GlobalbandData [nzBordered]='true' [nzShowPagination]='false' [nzData]="globalBandList">
+                        <thead>
+                          <th class="thtable">
+                            <img src="../../../assets//images/globalBand.jpg">
+                            <a class="coverimg3"></a>
+                            <ul>
+                                <li><span>全球榜</span></li>
+                                <!-- <li>
+                                  <a><i nz-icon type="play-circle" theme="outline"></i></a>
+                                  <a><i nz-icon type="folder-add" theme="outline"></i></a>
+                                </li> -->
+                              </ul>
+                          </th>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let item of GlobalbandData.data;let i=index" class="trBand" >
+                                  <td >
+                                    <a class="bandNum">{{i+1}}</a>
+                                    <a class="bandName" [routerLink]="['/music', item.musicid]">{{item.musicname}}</a>
+                                    <div class="bandBtnList">
+                                        <a (click)="addToaudio(i,'global')"><i nz-icon type="play-circle" theme="outline"></i></a>
+                                        <a (click)="addToaudiowait(i,'global')"><i nz-icon type="plus" theme="outline"></i></a>
+                                        <a (click)="addToSheet(item.musicid)"><i nz-icon type="folder-add" theme="outline"></i></a>
+                                    </div>
+                                  </td>
+                                </tr>
+                        </tbody>
+                      </nz-table>
+                </div>
+              </div>
+            
+               
+          </nz-tab>
+      </nz-tabset>
+    </div>
+    <div nz-col nzSpan="4" class="Contextbody rightContext">
+      <div nz-row>
+        <div nz-col nzSpan="4">
+            <div class="userDiv" >
+                <div class="headimgDiv"><img [src]="user?user.userheadimg:'../../../assets/images/userImg.jpg'"></div>
+                <a class="userName">{{user?user.username:'请登录'}}</a>
+                <ul class="userValueList">
+                  <li [routerLink]="['/track',user.userid]" *ngIf="user" style="outline: none"><a><span>{{socialData?socialData.trackcount:0}}</span>动态</a></li>
+                  <li *ngIf="!user"><a><span>0</span>动态</a></li>
+                  <li><a><span>{{socialData?socialData.followcount:0}}</span>关注</a></li>
+                  <li><a><span>{{socialData?socialData.fanscount:0}}</span>粉丝</a></li>
+                </ul>
+           </div>
+        </div>
+          
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="4">
+            <nz-tabset class="SingerDiv" [nzTabBarExtraContent]="moreSinger">
+                <nz-tab nzTitle="推荐歌手">
+                    <nz-list class="singerList">
+                        <a *ngFor="let item of SingerList" [routerLink]="['/singerinfo',item.singerid]"><nz-list-item class="singerItem"><img src="{{item.singerimg}}"><ul><a><li>{{item.singername}}</li></a><a></a></ul></nz-list-item></a>
+                      </nz-list>
+                      <ng-template #moreSinger>
+                          <a (click)="loadSinger()" >换一换</a>
+                      </ng-template>
+                </nz-tab>
+            </nz-tabset>
+        </div>
+         
+      </div>
+       <div nz-row>
+         <div nz-col nzSpan="4">
+            <nz-tabset class="rondomDiv" [nzTabBarExtraContent]="change">
+                <nz-tab nzTitle="猜你喜欢">
+                    <nz-list class="randomList">
+                        <nz-list-item class="randomItem" *ngFor="let item of rondomList">
+                            <!-- <nz-badge [nzCount]="item.playCount" [nzOverflowCount]='10000'>
+                                <i nz-icon type="like" theme="outline" class="likeIcon"></i>
+                              </nz-badge> -->
+                             <a [routerLink]="['/music', item.musicid]"><nz-list-item-meta [nzDescription]="fo" [nzTitle]="item.musicname" class="mata" [nzAvatar]="avatar"></nz-list-item-meta></a> 
+                          <!-- <a><span>{{item.musicname}}</span><span>{{item.singer}}</span><span>{{item.time}}</span></a></nz-list-item> -->
+                              
+                          <ng-template #avatar>
+                              <img [src]="item.musicimg" width="50px" height="50px">
+                          </ng-template>
+                          <ng-template #fo>
+                                <span style="margin-right: 20px;" class="matasinger">{{item.singer}}</span ><span>{{item.time}}</span>
+                              </ng-template>
+                          </nz-list-item>
+                        </nz-list>
+                </nz-tab>
+              </nz-tabset>
+              <ng-template #change>
+                  <a (click)="loadRecommendMusic()">换一换</a>
+              </ng-template>
+              <ng-template #moreRandom>
+                  <a>查看更多</a>
+              </ng-template>
+         </div>
+       </div>
+       
+    </div>
+  </div>
+
+  

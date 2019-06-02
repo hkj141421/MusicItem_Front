@@ -1,0 +1,95 @@
+<div nz-row>
+  <div nz-col nzSpan="4" class="nav">
+    <div nz-row>
+      <div nz-col>
+          <ul class="userinfo">
+            <li>
+              <img [src]="adminInfo.userheadimg" class="userimg">
+            </li>
+            <li>
+              <span class="username">{{adminInfo.username}}</span>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col>
+          <ul nz-menu nzTheme="dark" [nzInlineCollapsed]="isCollapsed" nzMode="inline">
+              <li nz-menu-item [routerLink]="['./overview']">
+                  <span title>
+                      <i nz-icon nzType="home" nzTheme="outline"></i>
+                      <span>网站概况</span>
+                  </span>
+              </li>
+              <li nz-submenu>
+                  <span title>
+                      <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+                      <span>音乐管理</span>
+                  </span>
+                  <ul>
+                    <li nz-menu-item [routerLink]="['./music']">
+                        <i nz-icon nzType="search" nzTheme="outline"></i>
+                        <span>搜索音乐</span>
+                    </li>
+                    <!-- <li nz-menu-item>
+                        <i nz-icon nzType="upload" nzTheme="outline"></i>
+                        <span>上传音乐</span>
+                    </li> -->
+                  </ul>
+              </li>
+              <li nz-submenu>
+                  <span title>
+                      <i nz-icon type="mail"></i>
+                      <span>歌手管理</span>
+                  </span>
+                  <ul>
+                      <li nz-menu-item [routerLink]="['./singer']">
+                          <i nz-icon nzType="search" nzTheme="outline"></i>
+                        <span>搜索歌手</span>
+                      </li>
+                      <!-- <li nz-menu-item>
+                          <i nz-icon nzType="plus" nzTheme="outline"></i>
+                        <span>添加歌手</span>
+                      </li> -->
+                  </ul>
+              </li>
+              <li nz-submenu>
+                  <span title>
+                      <i nz-icon type="mail"></i>
+                      <span>歌单管理</span>
+                  </span>
+                  <ul>
+                    <li nz-menu-item [routerLink]="['./sheet']">
+                        <i nz-icon nzType="search" nzTheme="outline"></i>
+                      <span>搜索歌单</span>
+                    </li>
+                    <!-- <li nz-menu-item>
+                        <i nz-icon nzType="plus" nzTheme="outline"></i>
+                      <span>添加歌单</span>
+                    </li> -->
+                  </ul>
+              </li>
+              <li nz-submenu>
+                  <span title>
+                      <i nz-icon nzType="user" nzTheme="outline"></i>
+                      <span>用户管理</span>
+                  </span>
+                  <ul>
+                    <li nz-menu-item [routerLink]="['./user']">
+                        <i nz-icon nzType="search" nzTheme="outline"></i>
+                      <span>搜索用户</span>
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div nz-col nzSpan="20" class="content">
+    <router-outlet></router-outlet>
+      <!-- <app-overview></app-overview> -->
+      <!-- <app-select-music></app-select-music> -->
+      <!-- <app-select-singer></app-select-singer> -->
+      <!-- <<app-select-sheet></app-select-sheet> -->
+  </div>
+</div>

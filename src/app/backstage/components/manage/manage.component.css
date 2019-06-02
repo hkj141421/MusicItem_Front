@@ -1,0 +1,39 @@
+.userimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.nav{
+    height: 620px;
+    background-color: rgb(0, 21, 41);
+}
+ul{
+    list-style: none;
+}
+.userinfo{
+    margin-top: 50px;
+    padding: 0;
+}
+.userinfo li {
+    text-align: center;
+}
+.username{
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+}
+.content{
+    height: 620px;
+    background-color: rgb(248, 249, 254);
+    
+    /* overflow-y: scroll; */
+    overflow: auto;
+}
+/* .content::-webkit-scrollbar{
+    display: none;
+} */
