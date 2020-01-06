@@ -8,6 +8,7 @@ import { MusicService } from '../app/services/music.service';
 })
 export class AppComponent {
   title = 'TimeMusic';
+  
   constructor(private Mservice:MusicService){}
 
   data:Array<any>;

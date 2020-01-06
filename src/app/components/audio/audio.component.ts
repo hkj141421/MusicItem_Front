@@ -131,9 +131,10 @@ export class AudioComponent implements OnInit {
     }
     this.CurrentSongInfo=changes["music"].currentValue;
     if(this.CurrentSongInfo!=null){
-      this.showLRC(this.CurrentSongInfo.lyricid);
-      
-      this.render.setAttribute(this.AudioPlay,"src",this.CurrentSongInfo.musicaddress);
+        this.setMusicAddress(this.CurrentSongInfo.musicaddress,(param)=>{
+          this.showLRC(this.CurrentSongInfo.lyricid);
+          this.render.setAttribute(this.AudioPlay,"src",param);
+        },(err)=>{});
     }
    // console.log(this.CurrentSongInfo);
 
@@ -371,14 +372,22 @@ export class AudioComponent implements OnInit {
   listloop(){/**实现列表循环,调用前应对index进行操作实现切换歌曲 */
     if(this.index<0){this.index=this.SongArray.length-1;console.log("<0")}
     else if(this.index>(this.SongArray.length-1)){this.index=0;}
-    this.setCurrentSongLine(); 
-    this.CurrentSongInfo=this.SongArray[this.index];
-    this.render.setAttribute(this.AudioPlay,"src",this.SongArray[this.index].musicaddress); 
-    clearInterval(this.Interval);
-    this.setIntervalSongpro();
-    this.playflag=0;
-    this.showLRC(this.CurrentSongInfo.lyricid);
-    this.Play();
+
+    this.setMusicAddress(this.SongArray[this.index].musicaddress,(url)=>{
+      this.setCurrentSongLine(); 
+      this.CurrentSongInfo=this.SongArray[this.index];
+      clearInterval(this.Interval);
+      this.setIntervalSongpro();
+      this.playflag=0;
+      this.render.setAttribute(this.AudioPlay,"src",url); 
+      this.showLRC(this.CurrentSongInfo.lyricid);
+      this.Play();
+    },(err)=>{
+      // this.index--;
+      // if(this.index<0){this.index=this.SongArray.length-1;}
+      // else if(this.index>(this.SongArray.length-1)){this.index=0;}
+    })
+
   }
 
   listrandom(){/**实现随机播放功能 */
@@ -442,30 +451,37 @@ export class AudioComponent implements OnInit {
    }
 
   Addplay($event){/**实现列表播放按钮功能 */
-        this.CurrentSongInfo=this.SongArray[$event.path[4].id];
-        this.SongCurrentTime=this.updateCurrentTime(0);
-        this.AudioPlay.currentTime=0;
-        this.showLRC(this.SongArray[$event.path[4].id].lyricid);
-        this.CurrentLrcLine=0;
-        this.render.setAttribute(this.AudioPlay,"src",this.SongArray[$event.path[4].id].musicaddress); 
-     
-        this.AudioPlay.play();
-        this.playflag=1;
-        
-        /**定时移动进度条 */
-        clearInterval(this.Interval);
-        this.setIntervalSongpro();
-        this.lastindex=this.index;
-        this.index=$event.path[4].id;
-        this.setCurrentSongLine();  
+
+    this.setMusicAddress(this.SongArray[$event.path[4].id].musicaddress,(url)=>{
+
+      this.CurrentSongInfo=this.SongArray[$event.path[4].id];
+      this.SongCurrentTime=this.updateCurrentTime(0);
+      this.AudioPlay.currentTime=0;
+      this.showLRC(this.SongArray[$event.path[4].id].lyricid);
+      this.CurrentLrcLine=0;
+      this.render.setAttribute(this.AudioPlay,"src",url); 
+   
+      this.AudioPlay.play();
+      this.playflag=1;
+      
+      /**定时移动进度条 */
+      clearInterval(this.Interval);
+      this.setIntervalSongpro();
+      this.lastindex=this.index;
+      this.index=$event.path[4].id;
+      this.setCurrentSongLine();  
+    },(err)=>{})
+
   }
 
   collectSong(musicid){/**实现收藏当前列歌曲功能 */
+    
     this.globalService.sendCollectMusic(musicid);
   }
   collectcurrentSong(){/**实现收藏当前正在播放的歌曲功能 */
     var sheetid="";
-    this.Mservice.collectSong(this.CurrentSongInfo.musicid,"测试");
+    this.globalService.sendCollectMusic(this.CurrentSongInfo.musicid);
+    // this.Mservice.collectSong(this.CurrentSongInfo.musicid,"测试");
   }
 
   deleteSong($event){/**实现删除列表歌曲功能 */
@@ -582,22 +598,45 @@ export class AudioComponent implements OnInit {
   }
 
   playmusicByIndex(index){/**实现列表播放按钮功能 */
-    this.CurrentSongInfo=this.SongArray[index];
-    this.SongCurrentTime=this.updateCurrentTime(0);
-    this.AudioPlay.currentTime=0;
-    this.showLRC(this.SongArray[index].lyricid);
-    this.CurrentLrcLine=0;
-    this.render.setAttribute(this.AudioPlay,"src",this.SongArray[index].musicaddress); 
+
+    this.setMusicAddress(this.SongArray[index].musicaddress,(url)=>{
+      this.CurrentSongInfo=this.SongArray[index];
+      this.SongCurrentTime=this.updateCurrentTime(0);
+      this.AudioPlay.currentTime=0;
+      this.showLRC(this.SongArray[index].lyricid);
+      this.CurrentLrcLine=0;
+      this.render.setAttribute(this.AudioPlay,"src",url); 
+   
+      this.AudioPlay.play();
+      this.playflag=1;
+      
+      /**定时移动进度条 */
+      clearInterval(this.Interval);
+      this.setIntervalSongpro();
+      this.lastindex=this.index;
+      this.index=index;
+      this.setCurrentSongLine();  
+    },(err)=>{
+
+    })
+
+}
+
+setMusicAddress(musicaddress:string,func:CallableFunction,err:CallableFunction)
+{
+  this.musicService.getMusicAddress(musicaddress).subscribe((data)=>{
  
-    this.AudioPlay.play();
-    this.playflag=1;
-    
-    /**定时移动进度条 */
-    clearInterval(this.Interval);
-    this.setIntervalSongpro();
-    this.lastindex=this.index;
-    this.index=index;
-    this.setCurrentSongLine();  
+    var url=data.data[0].url;
+ 
+    if(url==null){
+        this.msg.error("该歌曲暂未收录，请更换歌曲")
+    }
+    func(url);
+  },(err)=>{
+        this.msg.error("加载歌曲失败");
+        console.log(err);
+        err(err);
+  });
 }
 
 }

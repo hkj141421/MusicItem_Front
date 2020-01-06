@@ -41,6 +41,8 @@ export class CommentsComponent implements OnInit {
 
   userinfo:user;
 
+  submitting:boolean=false;
+
   constructor(private commonService:CommonService,private commentService:CommentService,private msg:NzMessageService,private activRouter:ActivatedRoute,private storge:StorgeService) { }
 
   ngOnInit() {

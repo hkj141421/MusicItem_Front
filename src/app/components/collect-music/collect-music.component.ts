@@ -23,6 +23,7 @@ export class CollectMusicComponent implements OnInit {
 
   ngOnInit() {
     this.globalService.collectmusicid.subscribe((data)=>{
+      console.log('订阅组件'+data);
       this.addToSheet(data);
     })
   }

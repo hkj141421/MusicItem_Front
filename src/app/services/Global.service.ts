@@ -27,6 +27,7 @@ export class GlobalService {
   }
 
   sendCollectMusic(musicid:number){
+    console.log('发射事件musicid:'+musicid)
     this.collectmusicid.emit(musicid);
   }
 

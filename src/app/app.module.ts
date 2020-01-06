@@ -45,6 +45,7 @@ import { SelectMusicComponent } from './backstage/components/select-music/select
 import { SelectSingerComponent } from './backstage/components/select-singer/select-singer.component';
 import { SelectSheetComponent } from './backstage/components/select-sheet/select-sheet.component';
 import { SelectUserComponent } from './backstage/components/select-user/select-user.component';
+import { FootComponent } from './components/foot/foot.component';
 
 registerLocaleData(zh);
 
@@ -84,7 +85,8 @@ registerLocaleData(zh);
     SelectMusicComponent,
     SelectSingerComponent,
     SelectSheetComponent,
-    SelectUserComponent
+    SelectUserComponent,
+    FootComponent
     
   ],
   imports: [

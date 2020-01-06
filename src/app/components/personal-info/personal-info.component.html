@@ -4,10 +4,11 @@
           <nz-form-item  nzFlex>
               <nz-form-label nzFor="name">昵称</nz-form-label>
               <nz-form-control nzSpan="18">
-                  <nz-input-group [nzSuffix]="suffixTemplate"   >
+                  <nz-input-group [nzSuffix]="suffixTemplate" >
                       <input type="text" nz-input  formControlName="name" name="name" readonly="readonly"/>
                     </nz-input-group>
                     <ng-template #prefixTemplate><i nz-icon type="user"></i></ng-template>
+                    <ng-template #suffixTemplate></ng-template>
               </nz-form-control>
           </nz-form-item>
           <nz-form-item  nzFlex>
@@ -79,7 +80,7 @@
       [nzShowUploadList]="true" 
        [nzLimit]="1" 
      [nzWithCredentials]="true" [(nzFileList)]="Headimage" nzListType="text"
-      [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)" nzAccept="image/*" style="margin-left: 40px;"> 
+      [nzBeforeUpload]="beforeUpload" (nzChange)="handleUpload()" nzAccept="image/*" style="margin-left: 40px;"> 
      <button nz-button><span>更改头像</span></button>
      </nz-upload>
   </div>
